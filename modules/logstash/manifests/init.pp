@@ -8,8 +8,8 @@ class logstash {
     source => "puppet:///modules/logstash/logstash",
     ensure => present,
     mode => 0755,
-    owner => root,
-    group => root
+    owner => logadmin,
+    group => logadmin
   }
  
   file {"/etc/logstash.conf":
