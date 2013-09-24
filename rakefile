@@ -1,8 +1,24 @@
-SSH = 'ssh -A -l logadmin'
+REPO = 'git@github.com:davidnewton/cls.git'
+SSH = 'ssh -A -i logadmin.pub -l logadmin'
 
 desc "Run Puppet on ENV['CLIENT']"
 task :apply do
   client = ENV['CLIENT']
   sh "git push"
   sh "#{SSH} #{client} pull-updates"
+end
+
+task :bootstrap do
+  client = ENV['CLIENT']
+  hostname = ENV['HOSTNAME'] || client
+  commands = <<BOOTSTRAP
+sudo hostname #{hostname} && \
+sudo su - c 'echo #{hostname} >/etc/hostname' && \
+wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb && \
+sudo apt-get update && sudo apt-get -y install git puppet && \
+echo -e \"Host github.com\n\tStrictHostKeyChecking no\n\" >> ~/.ssh/config
+git clone #{REPO} puppet && \
+sudo puppet apply --modeulepath=/home/logadmin/puppet/modules /home/logadmin/puppet/manifests/site.pp
+BOOTSTRAP
+  sh "#{SSH} #{client} '#{commands}'"
 end
