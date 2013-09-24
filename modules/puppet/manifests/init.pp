@@ -7,9 +7,4 @@ class puppet {
     source => 'puppet:///modules/puppet/pull-updates.sh',
     mode   => '0755',
   }
-  file { '/home/logadmin/.ssh/id_rsa':
-    source => 'puppet:///modules/puppet/logadmin.priv',
-    owner  => 'logadmin',
-    mode   => '0600',
-  }
 }
