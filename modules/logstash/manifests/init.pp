@@ -1,5 +1,5 @@
 class logstash {
-  file {"/opt/logstash-1.1.0-monolithic.jar":
+  file {"/opt/logstash-1.2.1-flatjar.jar":
     source => "puppet:///modules/logstash/logstash-1.2.1-flatjar.jar",
     ensure => present
   }
