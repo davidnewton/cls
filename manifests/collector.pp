@@ -13,7 +13,7 @@
   logstash::output::elasticsearch_river { 'logstash-esr':
    instances => [ 'collector' ],
    type => 'udp',
-   es_host => 'log-01.datacentre.esendex.com',
+   es_host => 'log-01',
    rabbitmq_host => $hostname,
    rabbitmq_port => '5672',
   }
