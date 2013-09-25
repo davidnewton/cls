@@ -1,6 +1,6 @@
 class { 'java':
   distribution => 'jdk',
-  version      => '7',
+  version      => '7u21-0',
 }
 
 class { 'elasticsearch':
