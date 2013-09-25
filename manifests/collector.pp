@@ -1,21 +1,4 @@
-class { 'elasticsearch':
-  pkg_source => 'puppet:///modules/elasticsearch/elasticsearch-0.90.5.deb',
-  config => {
-    'node' => {
-      'name' => 'es-collector01',
-    },
-    'index' => {
-      'number_of_replicas' => '1',
-      'number_of_shards' => '2',
-    },
-    'network' => {
-      'host' => $::ipaddress
-    }
-  }
-}
-
-
-  class { 'logstash':
+  class { 'logstash':   
    provider       => 'custom',
    jarfile        => 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',
    instances      => [ 'collector', 'shipper' ],
@@ -27,6 +10,7 @@ class { 'elasticsearch':
   }
 
   logstash::output::elasticsearch_river { 'logstash-esr':
+   pkg_source => 'puppet:///modules/elasticsearch/elasticsearch-0.90.5.deb',
    instances => [ 'collector' ],
    type => 'udp',
    es_host => 'log-01',
