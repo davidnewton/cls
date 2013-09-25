@@ -13,3 +13,7 @@ class { 'elasticsearch':
     }
   }
 }
+class { 'java':
+  distribution => 'jdk',
+  version      => '1.7.0_21',
+}
