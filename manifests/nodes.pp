@@ -1,4 +1,4 @@
-rode 'log-01.datacentre.esendex.com' {
+node 'log-01.datacentre.esendex.com' {
   include puppet
   import 'java.pp'
   import 'elasticsearch.pp'
