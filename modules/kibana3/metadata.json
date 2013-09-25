@@ -1,0 +1,36 @@
+{
+  "name": "arioch-kibana3",
+  "version": "0.0.6",
+  "source": "UNKNOWN",
+  "author": "Tom De Vylder",
+  "license": "Apache License, Version 2.0",
+  "summary": "Kibana3 module",
+  "description": "",
+  "project_page": "http://arioch.github.io/puppet-kibana3/",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.0.0"
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "Gemfile": "c0514114217ed57cd72fd797a1e68cba",
+    "Gemfile.lock": "8aa6d4bffd0ea3a4c99933c8ae6b718c",
+    "LICENSE": "1906cc9accb05dcaf61c8cda63402170",
+    "Modulefile": "8c10b72880b25b72925f88fecd751aa9",
+    "README.md": "e6f6ba246cc0a891af55086f257e1c50",
+    "Rakefile": "2c13ea4e1c0b9a94b5aa26630e7b67a9",
+    "manifests/config.pp": "685627927452ed380958cbe4e994dafc",
+    "manifests/init.pp": "5603ad22a7bdae27aaedb6c3f510754f",
+    "manifests/install.pp": "41493a5bb46752291d838d5102696a81",
+    "manifests/params.pp": "ac55e1da5e15695b1202555920319ab5",
+    "spec/classes/kibana3_spec.rb": "0e60ff8093582ae91c19f8fefdd0eec9",
+    "spec/spec_helper.rb": "d260022a03df207437bb089724ae1c54",
+    "templates/apache2.conf.erb": "9eb200aa14fc28104da964c6b52eb298",
+    "templates/config.js.erb": "203534488fc1afc3ee37fb9953dc4a5c",
+    "templates/nginx.conf.erb": "2d9af9d3661a4c330c5fc5075dc25254"
+  }
+}
