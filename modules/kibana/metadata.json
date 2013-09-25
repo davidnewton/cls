@@ -1,0 +1,38 @@
+{
+  "types": [
+
+  ],
+  "description": "Installs and configures Kibana3 from packages.",
+  "summary": "Installs and configures Kibana3.",
+  "source": "UNKNOWN",
+  "dependencies": [
+    {
+      "version_requirement": ">= 2.1.0",
+      "name": "evenup/apache"
+    }
+  ],
+  "author": "Justin Lambert <jlambert@letsevenup.com>",
+  "version": "0.2.0",
+  "name": "evenup-kibana",
+  "checksums": {
+    "spec/classes/kibana_config_spec.rb": "2d564210c78e7ac932d3c73d631abb84",
+    "scripts/build.sh": "5e4930e1ac68180cff68063244f43297",
+    "Rakefile": "5151df4f03dff05562dd69e2c798da03",
+    "LICENSE": "6a34c40bb8fa2134a463a814bae7dbe6",
+    "README.md": "a2561a65cba959cc34ed2de23348d867",
+    "manifests/init.pp": "1f831655ea68aadff058bb2347806464",
+    "spec/defines/kibana_dashboard_spec.rb": "d5e74880b9fd5c78dc1bac5334e8aecc",
+    "spec/classes/kibana_init_spec.rb": "b7c0c89520f2fc59013c847ea549026f",
+    "manifests/dashboard.pp": "87c0f5e18a2ec723f51f2daf699eead3",
+    "Gemfile": "f690c7696f4b4faf3db2d1f502bf325c",
+    "manifests/package.pp": "32a9225a5e9b53158c4bd62c65a4ab78",
+    "Modulefile": "2ab2597abd1755a8bdaa338ae1f3d297",
+    "CHANGELOG": "9377db7e7953e72db7b047f85a4079cc",
+    "spec/classes/kibana_package_spec.rb": "ec833cbbfb8a8a5c8a279d6a764e7649",
+    "templates/config.js": "a51c2dfb90a905e136af92144f25053a",
+    "spec/spec_helper.rb": "3ea886dd135e120afa31e0aab12e85b0",
+    "manifests/config.pp": "0740a627c217ba1c89fe260776e3a30d"
+  },
+  "project_page": "https://github.com/evenup/evenup-kibana",
+  "license": "Apache"
+}
