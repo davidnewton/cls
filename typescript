@@ -1,0 +1,1171 @@
+Script started on Tue 24 Sep 2013 23:27:47 BST
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd /etc/init
+]0;logadmin@log-01: /etc/initlogadmin@log-01:/etc/init$ ls
+acpid.conf               failsafe.conf             mountall-reboot.conf    network-interface-container.conf  rc-sysinit.conf      tty4.conf                    upstart-udev-bridge.conf
+apport.conf              flush-early-job-log.conf  mountall-shell.conf     network-interface-security.conf   resolvconf.conf      tty5.conf                    ureadahead.conf
+atd.conf                 friendly-recovery.conf    mounted-debugfs.conf    plymouth.conf                     rsyslog.conf         tty6.conf                    ureadahead-other.conf
+console.conf             hostname.conf             mounted-dev.conf        plymouth-log.conf                 screen-cleanup.conf  udev.conf                    wait-for-state.conf
+console-setup.conf       hwclock.conf              mounted-proc.conf       plymouth-splash.conf              setvtrgb.conf        udev-fallback-graphics.conf  whoopsie.conf
+container-detect.conf    hwclock-save.conf         mounted-run.conf        plymouth-stop.conf                shutdown.conf        udev-finish.conf
+control-alt-delete.conf  irqbalance.conf           mounted-tmp.conf        plymouth-upstart-bridge.conf      ssh.conf             udevmonitor.conf
+cron.conf                module-init-tools.conf    mounted-var.conf        procps.conf                       tty1.conf            udevtrigger.conf
+dbus.conf                mountall.conf             networking.conf         rc.conf                           tty2.conf            ufw.conf
+dmesg.conf               mountall-net.conf         network-interface.conf  rcS.conf                          tty3.conf            upstart-socket-bridge.conf
+]0;logadmin@log-01: /etc/initlogadmin@log-01:/etc/init$ cd ..
+]0;logadmin@log-01: /etclogadmin@log-01:/etc$ cd ~/puppet/
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ ls
+logadmin  logadmin.pub  [0m[01;34mmanifests[0m  [01;34mmodules[0m  rakefile  README.md  typescript
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd modules/
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ ls
+[0m[01;34mlogstash[0m  [01;34mpuppet[0m
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ cd logstash/
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ ls
+[0m[01;34mfiles[0m  [01;31mlogstash-1.2.1-flatjar.jar[0m  [01;34mmanifests[0m
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ cd manifests/
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ ls
+init.pp
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ cd ..
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ cd ..
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ ls[K[Kcd man
+bash: cd: man: No such file or directory
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ cd logs
+bash: cd: logs: No such file or directory
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ cd logstash/[6Pman[K[K[Klogstash/
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ cd manifests/
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ ls
+init.pp
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ sudo nano init.pp 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                   File: init.pp                                                                                                              [3;1H(B[mclass logstash {[4;3Hfile {"/opt/logstash-1.2.1-flatjar.jar":[5;5Hsource => "puppet:///modules/logstash/logstash-1.2.1-flatjar.jar",[6;5Hensure => present[7;3H}[9dfile {"/etc/init.d/logstash":[10;5Hsource => "puppet:///modules/logstash/logstash",[11;5Hensure => present,[12;5Hmode => 0755,[13;5Howner => logadmin,[14;5Hgroup => logadmin[15;3H}[17dfile {"/etc/logstash.conf":[18;5Hsource => "puppet:///modules/logstash/logstash.conf",[19;5Hensure => present,[20;5Hreplace => false[21;3H}[23dservice {"logstash":[24;5Hensure => running,[25;5Hsubscribe => File["/etc/logstash.conf"],[26;5Hrequire => [[27;7HFile["/etc/init.d/logstash"],[28;7HFile["/etc/logstash.conf"],[29;7HFile["/opt/logstash-1.2.1-flatjar.jar"][30;5H][31;3H}[32d}[52;73H(B[0;7m[ Read 30 lines (Converted from DOS format) ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[4d[5d[6d[7d[8d[9d[10d[11d[12d[13d[14d[15d[16d[17d[18d[19d[20d[21d[22d[23d[24d[25d[26d[27d[28d[52d[K[29d[30d[31d[32d[A  }[1;181H(B[0;7mModified[31d(B[m[K  [31;52r[52;1H
+[1;54r[30;6H[K    [30;52r[52;1H
+[1;54r[29;46H                                      [K[7G[29;52r[52;1H
+[1;54r[28;34H                          [K[7G[28;52r[52;1H
+[1;54r[27;36H                            [K[7G[27;52r[52;1H
+[1;54r[26;17H         [K    [26;52r[52;1H
+[1;54r[25;45H                                     [K    [25;52r[52;1H
+[1;54r[24;23H               [K    [24;52r[52;1H
+[1;54r[23;23H                  [K  [22;52r[52;1H
+[1;54r[22;2H[22;52r[52;1H
+[1;54r[21;4H[K  [21;52r[52;1H
+[1;54r[20;21H             [K    [20;52r[52;1H
+[1;54r[19;23H               [K    [19;52r[52;1H
+[1;54r[18;58H                                                  [K    [18;52r[52;1H
+[1;54r[17;30H                         [K  [16;52r[52;1H
+[1;54r[16;2H[16;52r[52;1H
+[1;54r[15;4H[K  [15;52r[52;1H
+[1;54r[14;22H              [K    [14;52r[52;1H
+[1;54r[13;23H               [K    [13;52r[52;1H
+[1;54r[12;18H          [K    [12;52r[52;1H
+[1;54r[11;23H               [K    [11;52r[52;1H
+[1;54r[10;53H                                             [K    [10;52r[52;1H
+[1;54r[9;32H                           [K  [8;52r[52;1H
+[1;54r[8;2H[8;52r[52;1H
+[1;54r[7;4H[K  [7;52r[52;1H
+[1;54r[6;22H              [K    [6;52r[52;1H
+[1;54r[5;71H                                                               [K    [5;52r[52;1H
+[1;54r[4;43H                                      [K  [5d[6d[A}[K[A [3;17H             [Kclass { 'logstash':[4;4Hprovider[18G=> 'custom',[5;4Hjarfile[18G=> 'puppet:///path/to/jarfile',[6;4Hinitfiles     => { 'agent' => 'puppet:///path/to/initfile' },[7;4Hdefaultsfiles => { 'agent' => 'puppet:///path/to/defaultsfile' }[8d }[A[A[A jarfile       => 'puppet:///path/to/j[1P[1P[1P[1P[1P[1P[1P[1Pmjarfile',[5;33Hojarfile',[5;34Hdjarfile',[5;35Hujarfile',[5;36Hljarfile',[5;37Hejarfile',[5;38Hsjarfile',[5;39H/jarfile',[5;40Hljarfile',[5;41Hojarfile',[5;42Hgjarfile',[5;43Hsjarfile',[5;44Htjarfile',[5;45Hajarfile',[5;46Hsjarfile',[5;47Hhjarfile',[5;48Hjarfile',[K',[K',[K',[K',[K',[K',[K',[K',[K',[K',[K',[K',[K',[K',[K',[K',[K',[K',[K',[K',[K',[K',[K//',[K/',[K',[K',[K',[K',[Kp',[K',[K',[K',[Kpuppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[6;65H[7di[68G                                                         [K   [7;52r[52;1H
+[1;54r[6;65H                                                  [K   [6;52r[52;1H
+[1;54r[5;77H[6;3H[K[7d}[A7[6;52r8M[1;54r[6;3Hlogstash_user  => 'logstash',[7;4Hlogstash_group => 'logstash'[A [A  [1P  [1P [1P jarfile[15G => 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',   jarfile[16G => 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',  [A [1P  [1P [1P provider      => 'custom',   provider      => 'custom',  [5d[6d[7d [1P  [7;32H'[K'[K'[K'[K'[Ka'd'm'i'n'[Ah',[K',[K',[K',[K',[Ka',d',m',i',n',[7d',7[8;52r8[8dM[1;54r[8;1Hconffile => 'puppet:///data/logstash/agent.config' conffile => 'puppet:///data/logstash/agent.config'   conffile => 'puppet:///data/logstash/agent.config'  conffil[Ah[A[A[A      [11G[17G => 'custom',[4;18H[11G[18G => 'custom',[4;19H[5d[10G[17G => 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[5;18H[5;10H[5;18H => 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[5;19H[6d[A [5;10H[1P[5;18H[A [4;11H[1P[18G[5d[6d[7d[8d  => 'puppet:///data/logstash/agent.config'[8;13H   => 'puppet:///data/logstash/agent.config'[8;14H    => 'puppet:///data/logstash/agent.config'[8;15H     => 'puppet:///data/logstash/agent.config'[8;16H[11G      => 'puppet:///data/logstash/agent.config'[8;17H[11G[17G => 'puppet:///data/logstash/agent.config'[8;18H[11G[18G => 'puppet:///data/logstash/agent.config'[8;19H[8;11H[1P[18G=> 'puppet:///data[1P[1P[1P[1Pm/logstash/agent.config'[8;33Ho/logstash/agent.config'[8;34Hd/logstash/agent.config'[8;35Hi/logstash/agent.config'[8;36H[1Pu/logstash/agent.config'[8;36Hk/logstash/agent.config'[8;37He/logstash/agent.config'[8;38Hs/logstash/agent.config'[8;39Hk[1Poes/logstash/agent.config'[8;37H[1Ples/logstash/agent.config'[8;37Hes/logstash/agent[1P[1P[1P[1P[1Pl.config'[8;50Ho.config'[8;51Hg.config'[8;52Hs.config'[8;53Ht.config'[8;54Ha.config'[8;55Hs.config'[8;56Hh.config'[8;57H.config'[K'[K',[52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write [DOS Format]: init.pp                    [53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;41H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 7 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ cd ~/pupp
+bash: cd: /home/logadmin/pupp: No such file or directory
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ cd ~/pupp[Kcd ~/puppsudo nano init.pp [9Pcd ~/puppet/
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ dit add *
+No command 'dit' found, did you mean:
+ Command 'dist' from package 'nmh' (universe)
+ Command 'di' from package 'di' (universe)
+ Command 'ditz' from package 'ditz' (universe)
+ Command 'dat' from package 'liballegro4.2-dev' (universe)
+ Command 'dig' from package 'dnsutils' (main)
+ Command 'dia' from package 'dia' (universe)
+ Command 'dia' from package 'dia-gnome' (main)
+ Command 'edit' from package 'mime-support' (main)
+ Command 'dir' from package 'coreutils' (main)
+ Command 'git' from package 'git' (main)
+ Command 'dict' from package 'dict' (main)
+ Command 'dt' from package 'ditrack' (universe)
+ Command 'diet' from package 'dietlibc-dev' (universe)
+ Command 'dot' from package 'graphviz' (main)
+dit: command not found
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ git add *
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ git m[Kcommit -m chan[K[K[K[K"changes[Kd[Ks to init.pp[K[K[K[K[K[K[K[K[K[K[K[Kd manifest to [K[K[K[K"
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	modified:   modules/logstash/files/logstash
+#	modified:   modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ i[Kgit push -u origin master
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates 
+Already up-to-date.
+[1;31mError: Could not find class logstash for log-01.datacentre.esendex.com on node log-01.datacentre.esendex.com[0m
+[1;31mError: Could not find class logstash for log-01.datacentre.esendex.com on node log-01.datacentre.esendex.com[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd[K[Knano /modules/logstash/manifests/init.pp
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                          File: /modules/logstash/manifests/init.pp                                                                                           [52;90H[ New File ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[53d[J[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd modules/
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ cd puppet/[K[K[K[K[K[K[Klogstash/
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ ls
+[0m[01;34mfiles[0m  [01;31mlogstash-1.2.1-flatjar.jar[0m  [01;34mmanifests[0m
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ cd manifests/
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ ls
+init.pp
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ s[Knano init.pp 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                   File: init.pp                                                                                                              [3;1H(B[mclass { 'logstash':[4;3Hprovider[18G=> 'custom',[5;3Hjarfile[5;18H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[6;3Hlogstash_user  => 'logadmin',[7;3Hlogstash_group => 'logadmin',[8;3Hconffile[18G=> 'puppet:///modules/logstash/logstash.conf',[9d}[52;74H(B[0;7m[ Read 7 lines (Converted from DOS format) ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[53d[J[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ cd ..
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ cd ...[K
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ cd puppet/
+]0;logadmin@log-01: ~/puppet/modules/puppetlogadmin@log-01:~/puppet/modules/puppet$ cd manifests/
+]0;logadmin@log-01: ~/puppet/modules/puppet/manifestslogadmin@log-01:~/puppet/modules/puppet/manifests$ nao[Kno init.pp
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                   File: init.pp                                                                                                              [3;1H(B[mclass puppet {[4;3Hfile { '/usr/local/bin/papply':[5;5Hsource => 'puppet:///modules/puppet/papply.sh',[6;5Hmode   => '0755',[7;3H}[8dfile { '/usr/local/bin/pull-updates':[9;5Hsource => 'puppet:///modules/puppet/pull-updates.sh',[10;5Hmode   => '0755',[11;3H}[12d}[52;87H(B[0;7m[ Read 10 lines ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3dclass [53d[J[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppet/modules/puppet/manifestslogadmin@log-01:~/puppet/modules/puppet/manifests$ nano init.pp[Kcd ..
+]0;logadmin@log-01: ~/puppet/modules/puppetlogadmin@log-01:~/puppet/modules/puppet$ cd ..
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ cd logstash/
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ cd manifests/
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ nano init.pp[1@s[1@u[1@d[1@o[1@ 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                   File: init.pp                                                                                                              [3;1H(B[mclass { 'logstash':[4;3Hprovider[18G=> 'custom',[5;3Hjarfile[5;18H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[6;3Hlogstash_user  => 'logadmin',[7;3Hlogstash_group => 'logadmin',[8;3Hconffile[18G=> 'puppet:///modules/logstash/logstash.conf',[9d}[52;74H(B[0;7m[ Read 7 lines (Converted from DOS format) ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[4d[5d[A[Aclass {[1;181H(B[0;7mModified[3;7H(B[m[1P 'logstash': [52d[K[3;19H{ {[K[1P[52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write [DOS Format]: init.pp                    [53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;41H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 7 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ sudo nano init.pp[4Pcd manifests/[1Plogstash/..[Knano init.ppcd manifests/[3Ppuppet/manifests/[3Ppuppet/..[Knano init.pp ls[Kcd manifests/ls[Kcd logstash/[1Pmodules/nano /modules/logstash/manifests/init.pppull-updates [Kgit push -u origin mastercommit -m "changed manifest"add *[Kd[C[C[C[C[C[C[C[Ccd ~/puppet/
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ git add *
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ git commi t[K[Kt -m ""l"o"g"s"a"s"h"[1P"[1P"[1P"[1P"[1P"g"s"
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	modified:   modules/logstash/files/logstash
+#	modified:   modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ git push -u origin master
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo nano push.sh
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                   File: push.sh                                                                                                              [52;90H[ New File ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[1;181H(B[0;7mModified[3d(B[mgit[42m [49m(B[m add[42m [49m(B[m *[4dgot  it[42m [49m(B[m commit[42m [49m(B[m -[52d[K[4;13Hm[42m [49m(B[m "automated[42m [49m(B[m push[4;15H(B[0;1m[33m"automated push"[39m(B[m[5dgit[42m [49m(B[m push[42m [49m(B[m -[32m-u[39m(B[m[42m [49m(B[m origin[42m [49m(B[m master[A[C[C[3;10H[4d[4;31H(B[0;1m[33mh"[39m(B[m[K(B[0;1m[33mh"[39m(B[m[K(B[0;1m[33mh"[39m(B[m[K[C(B[0;1m[33m"[39m(B[m[K(B[0;1m[33mc"[39m(B[m(B[0;1m[33mo"[39m(B[m(B[0;1m[33mm"[39m(B[m(B[0;1m[33mmm"[39m(B[m(B[0;1m[33mi"[39m(B[m(B[0;1m[33mt"[39m(B[m[5;26H[52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write: push.sh                                 [53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;28H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 3 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pp[Kush.shbpush.shapush.shspush.shhpush.sh push.sh
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	modified:   modules/logstash/files/logstash
+#	modified:   modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	push.sh
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates 
+Already up-to-date.
+[1;31mError: Syntax error at '=>'; expected '}' at /home/logadmin/puppet/modules/logstash/manifests/init.pp:2 on node log-01.datacentre.esendex.com[0m
+[1;31mError: Syntax error at '=>'; expected '}' at /home/logadmin/puppet/modules/logstash/manifests/init.pp:2 on node log-01.datacentre.esendex.com[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo nano /modules/logstash.[K/manis[Kfests/init.pp
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                          File: /modules/logstash/manifests/init.pp                                                                                           [52;90H[ New File ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[53d[J[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo nano /modules/logstash/manifests/init.pp[1Pmodules/logstash/manifests/init.pp
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                          File: modules/logstash/manifests/init.pp                                                                                            [3;1H(B[mclass  logstash {[4;3Hprovider[18G=> 'custom',[5;3Hjarfile[5;18H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[6;3Hlogstash_user  => 'logadmin',[7;3Hlogstash_group => 'logadmin',[8;3Hconffile[18G=> 'puppet:///modules/logstash/logstash.conf',[9d}[52;74H(B[0;7m[ Read 7 lines (Converted from DOS format) ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[4d [Alass [1;181H(B[0;7mModified[3;7H(B[m{ logstash {[8G 'logstash {[3;10Hlogstash' {: { [52d[K[3;22H [4d[5d[6d[7d[8d[8;65H [52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write [DOS Format]: modules/logstash/manifests/init.pp[53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;68H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 7 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo nano modules/logstash/manifests/init.pp/modules/logstash/manifests/init.pp[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpull-updates [K[1Pbash push.sh
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	modified:   modules/logstash/files/logstash
+#	modified:   modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	push.sh
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates 
+Already up-to-date.
+[1;31mError: Could not find class logstash for log-01.datacentre.esendex.com on node log-01.datacentre.esendex.com[0m
+[1;31mError: Could not find class logstash for log-01.datacentre.esendex.com on node log-01.datacentre.esendex.com[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates [1Pbash push.shsudo nano modules/logstash/manifests/init.pp
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                          File: modules/logstash/manifests/init.pp                                                                                            [3;1H(B[mclass { 'logstash':[4;3Hprovider[18G=> 'custom',[5;3Hjarfile[5;18H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[6;3Hlogstash_user  => 'logadmin',[7;3Hlogstash_group => 'logadmin',[8;3Hconffile[18G=> 'puppet:///modules/logstash/logstash.conf'[9d}[52;74H(B[0;7m[ Read 7 lines (Converted from DOS format) ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3dclass { 'logstash':[1;181H(B[0;7mModified[3;19H(B[m {'{[K:{[52d[K[3;19Hc{o{l{ll{e{c{t{o{r{[1P 'logstash:co::collector{[3;19H '[1P[3;29H {[52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write [DOS Format]: modules/logstash/manifests/init.pp[53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;68H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 7 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ ls
+logadmin  logadmin.pub  [0m[01;34mmanifests[0m  [01;34mmodules[0m  push.sh  rakefile  README.md  typescript
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ mv [K[K[Kcd manifests/
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ cd ..
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd modules/
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ cd logstash/
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ cd manifests/
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ ls
+init.pp
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ mv init.pp l[Kcollector.pp
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ cd ..
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ cd ..
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ cd ..
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pu[K[Kgi[K[Kpushd [K[K.shbpush.shapush.shspush.shhpush.sh push.sh
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+# On branch master
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	modified:   modules/logstash/files/logstash
+#	deleted:    modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	modules/logstash/manifests/collector.pp
+#	push.sh
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates 
+Already up-to-date.
+[1;31mError: Could not find class logstash for log-01.datacentre.esendex.com on node log-01.datacentre.esendex.com[0m
+[1;31mError: Could not find class logstash for log-01.datacentre.esendex.com on node log-01.datacentre.esendex.com[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates [1Pbash push.sh[7Pcd ..mv init.pp collector.ppls[Kcd manifests/[1Plogstash/[1Pmodules/..[Kmanifests/ls[Ksudo nano modules/logstash/manifests/init.pp[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpull-updates [Ksudo nano modules/logstash/manifests/init.pp[K[K[K[K[K[K[Kcollector.pp 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                         File: modules/logstash/manifests/collector.pp                                                                                        [3;1H(B[mclass  logstash::collector {[4;3Hprovider[18G=> 'custom',[5;3Hjarfile[5;18H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[6;3Hlogstash_user  => 'logadmin',[7;3Hlogstash_group => 'logadmin',[8;3Hconffile[18G=> 'puppet:///modules/logstash/logstash.conf'[9d}[52;74H(B[0;7m[ Read 7 lines (Converted from DOS format) ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[53d[J[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd manifests/
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ls
+logstash-collector.pp  nodes.pp  site.pp
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ nano nodes.pp 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                   File: nodes.pp                                                                                                             [3;1H(B[mnode 'log-01' {[4;3Hinclude puppet[5;3Hinclude logstash[6d}[7dnode 'log-02' {[8;3Hinclude puppet[9d}[52;88H(B[0;7m[ Read 7 lines ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[4d [5d include logstash[6d[5;19H[1;181H(B[0;7mModified[5;19H(B[m::co[52d[K[5;23Hllector[52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write: nodes.pp                                [53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;29H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 7 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ cd ..
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd ..nano nodes.pp ls[Kcd manifests/sudo nano modules/logstash/manifests/collector.pp [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpull-updates [K[1Pbash push.sh
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+# On branch master
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	modified:   manifests/nodes.pp
+#	modified:   modules/logstash/files/logstash
+#	deleted:    modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	modules/logstash/manifests/collector.pp
+#	push.sh
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates 
+Already up-to-date.
+[1;31mError: Syntax error at '=>'; expected '}' at /home/logadmin/puppet/modules/logstash/manifests/collector.pp:2 on node log-01.datacentre.esendex.com[0m
+[1;31mError: Syntax error at '=>'; expected '}' at /home/logadmin/puppet/modules/logstash/manifests/collector.pp:2 on node log-01.datacentre.esendex.com[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates [1Pbash push.sh[7Pcd ..nano nodes.pp ls[Kcd manifests/sudo nano modules/logstash/manifests/collector.pp 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                         File: modules/logstash/manifests/collector.pp                                                                                        [3;1H(B[mclass  logstash::collector {[4;3Hprovider[18G=> 'custom',[5;3Hjarfile[5;18H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[6;3Hlogstash_user  => 'logadmin',[7;3Hlogstash_group => 'logadmin',[8;3Hconffile[18G=> 'puppet:///modules/logstash/logstash.conf'[9d}[52;74H(B[0;7m[ Read 7 lines (Converted from DOS format) ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3dcla[4d[Ass [1;181H(B[0;7mModified[3;6H(B[m[1P [4d[5d[6d[7d[8d[8;63H,[52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write [DOS Format]: modules/logstash/manifests/collector.pp[53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;73H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 7 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo nano modules/logstash/manifests/collector.pp [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpull-updates [K[1Pbash push.sh
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+# On branch master
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	modified:   manifests/nodes.pp
+#	modified:   modules/logstash/files/logstash
+#	deleted:    modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	modules/logstash/manifests/collector.pp
+#	push.sh
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+puBranch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates 
+Already up-to-date.
+[1;31mError: Syntax error at '=>'; expected '}' at /home/logadmin/puppet/modules/logstash/manifests/collector.pp:2 on node log-01.datacentre.esendex.com[0m
+[1;31mError: Syntax error at '=>'; expected '}' at /home/logadmin/puppet/modules/logstash/manifests/collector.pp:2 on node log-01.datacentre.esendex.com[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates [1Pbash push.shsudo nano modules/logstash/manifests/collector.pp 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                         File: modules/logstash/manifests/collector.pp                                                                                        [3;1H(B[mclass logstash::collector {[4;3Hprovider[18G=> 'custom',[5;3Hjarfile[5;18H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[6;3Hlogstash_user  => 'logadmin',[7;3Hlogstash_group => 'logadmin',[8;3Hconffile[18G=> 'puppet:///modules/logstash/logstash.conf',[9d}[52;74H(B[0;7m[ Read 7 lines (Converted from DOS format) ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[4d [Alass [1;181H(B[0;7mModified[3;7H(B[m{logstash::collector {[8G logstash::collector {[3;9Hlogstash::colle[52d[K[3;25Htor  {[K {[K {[K {[K {[Kl {[K {[K {[K {[K: {[K': { 'logstash': {[3;10Hlogstash': { [52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write [DOS Format]: modules/logstash/manifests/collector.pp[53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;73H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 7 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo nano modules/logstash/manifests/collector.pp [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpull-updates [K[1Pbash push.shsudo nano modules/logstash/manifests/collector.pp [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpull-updates [K[37@sudo nano modules/logstash/manifests/collector.pp[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cbash push.sh[Kpull-updates [37@sudo nano modules/logstash/manifests/collector.pp[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ksudo nano /manifests.[K/nodes.pp
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                               File: /manifests/nodes.pp                                                                                                      [52;90H[ New File ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[53d[J[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo nano /manifests/nodes.pp[1Pmanifests/nodes.pp
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                File: manifests/nodes.pp                                                                                                      [3;1H(B[mnode 'log-01' {[4;3Hinclude puppet[5;3Hinclude logstash::collector[6d}[7dnode 'log-02' {[8;3Hinclude puppet[9d}[52;88H(B[0;7m[ Read 7 lines ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[4d[5d[A[5d[5;30H[1;181H(B[0;7mModified[5;29H(B[m           [52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write: manifests/nodes.pp                      [53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;39H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 7 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo nano manifests/nodes.pp/manifests/nodes.ppmodules/logstash/manifests/collector.pp [C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1@m[1@v[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmodules/logstash/manifests/c[Ku[Kinit,o[K[K.pp
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ bash push.sh 
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	modified:   modules/logstash/files/logstash
+#	modified:   modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	push.sh
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates 
+Already up-to-date.
+[1;31mError: Could not find class logstash for log-01.datacentre.esendex.com on node log-01.datacentre.esendex.com[0m
+[1;31mError: Could not find class logstash for log-01.datacentre.esendex.com on node log-01.datacentre.esendex.com[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates bash push.sh[Csudo mv modules/logstash/manifests/collector.pp modules/logstash/manifests/init.pp
+mv: cannot stat `modules/logstash/manifests/collector.pp': No such file or directory
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo mv modules/logstash/manifests/collector.pp modules/logstash/manifests/init.pp[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpull-updates [Kbash push.sh[Csudo mv modules/logstash/manifests/collector.pp modules/logstash/manifests/init.pp[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cnano manifests/nodes.pp[K/manifests/nodes.ppmodules/logstash/manifests/collector.pp [1P[1P[1P[1P[1P[1P[1P[1P[1P[1@i[1@n[1@i[1@t
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                          File: modules/logstash/manifests/init.pp                                                                                            [3;1H(B[mclass { 'logstash':[4;3Hprovider[18G=> 'custom',[5;3Hjarfile[5;18H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[6;3Hlogstash_user  => 'logadmin',[7;3Hlogstash_group => 'logadmin',[8;3Hconffile[18G=> 'puppet:///modules/logstash/logstash.conf',[9d}[52;74H(B[0;7m[ Read 7 lines (Converted from DOS format) ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3dclass { 'logstash':[53d[J[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo nano modules/logstash/manifests/init.pp 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                          File: modules/logstash/manifests/init.pp                                                                                            [3;1H(B[mclass { 'logstash':[4;3Hprovider[18G=> 'custom',[5;3Hjarfile[5;18H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[6;3Hlogstash_user  => 'logadmin',[7;3Hlogstash_group => 'logadmin',[8;3Hconffile[18G=> 'puppet:///modules/logstash/logstash.conf',[9d}[52;74H(B[0;7m[ Read 7 lines (Converted from DOS format) ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[2;51r[2;1HM[1;54r[1;181H(B[0;7mModified[4d(B[m[Aclads ss  s  ss logstash[52d[K[3;15H::collector {7[4;52r8[4dM[1;54r[4;1H7[4;52r8M[1;54r[5;1H}[A  stage ( { 'collector':} }}[5d}[6;12Hgstash':[K:[K:         collector:  { :  [52;68H(B[0;7m[ line 4/11 (36%), col 20/22 (90%), char 74/314 (23%) ][6;20H(B[m[52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H[53d[J[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ 
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo nano modules/logstash/manifests/init.pp 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                          File: modules/logstash/manifests/init.pp                                                                                            [3;1H(B[mclass { 'logstash':[4;3Hprovider[18G=> 'custom',[5;3Hjarfile[5;18H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[6;3Hlogstash_user  => 'logadmin',[7;3Hlogstash_group => 'logadmin',[8;3Hconffile[18G=> 'puppet:///modules/logstash/logstash.conf',[9d}[52;74H(B[0;7m[ Read 7 lines (Converted from DOS format) ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[53d[J[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo nano modules/logstash/manifests/init.pp [1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1@a[1@n[C[C[C[1P [1P [1P i f e s t s . [1P / n o d e s . p p 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                File: manifests/nodes.pp                                                                                                      [3;1H(B[mnode 'log-01' {[4;3Hinclude puppet[5;3Hinclude logstash[6d}[7dnode 'log-02' {[8;3Hinclude puppet[9d}[52;88H(B[0;7m[ Read 7 lines ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[4d[5d  include logstash[6d[5;19H[1;181H(B[0;7mModified[5;18H(B[m    [52d[K[5;15H          [K  7[5;52r8[7T[1;54r[5;5Hprovider[20G=> 'custom',[6;3Hjarfile[6;18H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[7;3Hlogstash_user  => 'logadmin',[8;3Hlogstash_group => 'logadmin',[9;3Hconffile[18G=> 'puppet:///modules/logstash/logstash.conf',[10d}[12d[11;52r[52;1H
+[1;54r[11;1H[A[A[A[A[A  [A  [1P   [1P  [6d[A   provider[18G => 'custom',       provider[19G => 'custom',[5G[6d   jarfile[18G => 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',       jarfile[19G => 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[5G[7d   logstash_user  => 'logadmin',       logstash_user  => 'logadmin',[5G[8d   logstash_group => 'logadmin',       logstash_group => 'logadmin',[5G[9d   conffile[18G => 'puppet:///modules/logstash/logstash.conf',       conffile[19G => 'puppet:///modules/logstash/logstash.conf',[5G[A[A[A[A7[5;52r8M[1;54r[6;1H[2P[A[6d     provider[18G => 'custom',   [A [6d     provider[19G => 'custom',[5G[A class {logstash' logstash'[5;11Hl'ogstash'[5;13Hogstash'[6d[5;21H':[1P[6d[7d[8d[9d[10d[11d} }  }[A[A[A[A[A  [Aass { 'logstash':[5;12H[52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write: manifests/nodes.pp                      [53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;39H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 14 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ ps[Ku[K[Kbash push.sh 
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	modified:   manifests/nodes.pp
+#	modified:   modules/logstash/files/logstash
+#	modified:   modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	push.sh
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ bash push.sh [16@sudo nano manifests/nodes.pp[C[16@odules/logstash/manifests/init[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmv modules/logstash/manifests/collector.pp modules/logstash/manifests/init.pp[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cpull-updates [K
+Already up-to-date.
+[1;31mError: Puppet::Parser::AST::Resource failed with error ArgumentError: Could not find declared class logstash at /home/logadmin/puppet/manifests/nodes.pp:9 on node log-01.datacentre.esendex.com
+Wrapped exception:
+Could not find declared class logstash[0m
+[1;31mError: Puppet::Parser::AST::Resource failed with error ArgumentError: Could not find declared class logstash at /home/logadmin/puppet/manifests/nodes.pp:9 on node log-01.datacentre.esendex.com[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates bash push.sh[C[16@sudo nano manifests/nodes.pp[C
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                File: manifests/nodes.pp                                                                                                      [3;1H(B[mnode 'log-01' {[4;3Hinclude puppet[5;3Hclass { 'logstash':[6;5Hprovider[20G=> 'custom',[7;5Hjarfile[7;20H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[8;5Hlogstash_user  => 'logadmin',[9;5Hlogstash_group => 'logadmin',[10;5Hconffile[20G=> 'puppet:///modules/logstash/logstash.conf',[11;3H}[13d}[14dnode 'log-02' {[15;3Hinclude puppet[16d}[52;87H(B[0;7m[ Read 14 lines ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[4d[5d[6d[7d[8d[9d[10d[11d[12d[12;51r[51;1H
+[1;54r[1;181H(B[0;7mModified[11;4H(B[m[A[A[A[A[A[A[A[5d[6d[7d[8d[9d[10d[11d[52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write: manifests/nodes.pp                      [53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;39H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 13 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo nano manifests/nodes.pp 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                File: manifests/nodes.pp                                                                                                      [3;1H(B[mnode 'log-01' {[4;3Hinclude puppet[5;3Hclass { 'logstash':[6;5Hprovider[20G=> 'custom',[7;5Hjarfile[7;20H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[8;5Hlogstash_user  => 'logadmin',[9;5Hlogstash_group => 'logadmin',[10;5Hconffile[20G=> 'puppet:///modules/logstash/logstash.conf',[11;3H}[12d}[13dnode 'log-02' {[14;3Hinclude puppet[15d}[52;87H(B[0;7m[ Read 13 lines ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3dnode 'log-01' {[4d  in[5d[6d[Aas[52d[K[5;8H { 'logstash[1;181H(B[0;7mModified[5;20H(B[m:':::':[6d[7d[8d[9d[10d[10;66H [52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write: manifests/nodes.pp                      [53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;39H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 13 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo nano manifests/nodes.pp [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[16Ppull-updates[Cbash push.sh[C
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	modified:   manifests/nodes.pp
+#	modified:   modules/logstash/files/logstash
+#	modified:   modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	push.sh
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates 
+Already up-to-date.
+[1;31mError: Puppet::Parser::AST::Resource failed with error ArgumentError: Could not find declared class logstash:: at /home/logadmin/puppet/manifests/nodes.pp:9 on node log-01.datacentre.esendex.com
+Wrapped exception:
+Could not find declared class logstash::[0m
+[1;31mError: Puppet::Parser::AST::Resource failed with error ArgumentError: Could not find declared class logstash:: at /home/logadmin/puppet/manifests/nodes.pp:9 on node log-01.datacentre.esendex.com[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates bash push.sh[C[16@sudo nano manifests/nodes.pp[C
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                File: manifests/nodes.pp                                                                                                      [3;1H(B[mnode 'log-01' {[4;3Hinclude puppet[5;3Hclass { 'logstash::':[6;5Hprovider[20G=> 'custom',[7;5Hjarfile[7;20H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[8;5Hlogstash_user  => 'logadmin',[9;5Hlogstash_group => 'logadmin',[10;5Hconffile[20G=> 'puppet:///modules/logstash/logstash.conf'[11;3H}[12d}[13dnode 'log-02' {[14;3Hinclude puppet[15d}[52;87H(B[0;7m[ Read 13 lines ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[4d[5d  class { 'logstash::[1;181H(B[0;7mModified[5;20H(B[m:':[K':[K[52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write: manifests/nodes.pp                      [53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;39H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 13 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ sudo nano manifests/nodes.pp [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[16Ppull-updates[Cbash push.sh[C
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	modified:   manifests/nodes.pp
+#	modified:   modules/logstash/files/logstash
+#	modified:   modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	push.sh
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates 
+Already up-to-date.
+[1;31mError: Puppet::Parser::AST::Resource failed with error ArgumentError: Could not find declared class logstash at /home/logadmin/puppet/manifests/nodes.pp:9 on node log-01.datacentre.esendex.com
+Wrapped exception:
+Could not find declared class logstash[0m
+[1;31mError: Puppet::Parser::AST::Resource failed with error ArgumentError: Could not find declared class logstash at /home/logadmin/puppet/manifests/nodes.pp:9 on node log-01.datacentre.esendex.com[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd .m[K[K~/.puppet/
+]0;logadmin@log-01: ~/.puppetlogadmin@log-01:~/.puppet$ ls
+[0m[01;34mmodules[0m  [01;34mvar[0m
+]0;logadmin@log-01: ~/.puppetlogadmin@log-01:~/.puppet$ cd modules/
+]0;logadmin@log-01: ~/.puppet/moduleslogadmin@log-01:~/.puppet/modules$ ls
+[0m[01;34mjava[0m  [01;34mlogstash[0m  [01;34mstdlib[0m
+]0;logadmin@log-01: ~/.puppet/moduleslogadmin@log-01:~/.puppet/modules$ cp logstash/[K ~/mod[K[K[Kpuppet/modules/logstash/
+cp: omitting directory `logstash'
+]0;logadmin@log-01: ~/.puppet/moduleslogadmin@log-01:~/.puppet/modules$ cp logstash ~/puppet/modules/logstash/[K
+cp: omitting directory `logstash'
+]0;logadmin@log-01: ~/.puppet/moduleslogadmin@log-01:~/.puppet/modules$ cp logstash ~/puppet/modules/logstash -r
+]0;logadmin@log-01: ~/.puppet/moduleslogadmin@log-01:~/.puppet/modules$ cd ~/
+]0;logadmin@log-01: ~logadmin@log-01:~$ cd puppet/
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd modules/
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ ls
+[0m[01;34mlogstash[0m  [01;34mpuppet[0m
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ cd logstash/
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ ls
+[0m[01;34mfiles[0m  [01;34mlogstash[0m  [01;31mlogstash-1.2.1-flatjar.jar[0m  [01;34mmanifests[0m
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ cd logstash/
+]0;logadmin@log-01: ~/puppet/modules/logstash/logstashlogadmin@log-01:~/puppet/modules/logstash/logstash$ ls
+CHANGELOG  CONTRIBUTORS  [0m[01;34mfiles[0m  [01;34mlib[0m  LICENSE  [01;34mmanifests[0m  metadata.json  Modulefile  Rakefile  README.md  [01;34mspec[0m  [01;34mtemplates[0m
+]0;logadmin@log-01: ~/puppet/modules/logstash/logstashlogadmin@log-01:~/puppet/modules/logstash/logstash$ cd ..
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ ls
+[0m[01;34mfiles[0m  [01;34mlogstash[0m  [01;31mlogstash-1.2.1-flatjar.jar[0m  [01;34mmanifests[0m
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ cd ~.[K/p[K.puppet/
+]0;logadmin@log-01: ~/.puppetlogadmin@log-01:~/.puppet$ ls
+[0m[01;34mmodules[0m  [01;34mvar[0m
+]0;logadmin@log-01: ~/.puppetlogadmin@log-01:~/.puppet$ cd modules/
+]0;logadmin@log-01: ~/.puppet/moduleslogadmin@log-01:~/.puppet/modules$ ls
+[0m[01;34mjava[0m  [01;34mlogstash[0m  [01;34mstdlib[0m
+]0;logadmin@log-01: ~/.puppet/moduleslogadmin@log-01:~/.puppet/modules$ lscd modules/ls[Kcd ~/.puppet/ls[Kcd ..[3Plscd logstash/ls[Kcd logstash/ls[Kcd modules/[1Ppuppet/~/[Kp logstash ~/puppet/modules/logstash -r[1P -r[1P -r[1P -r[1P -r[1P -r[1P -r[1P -r[1P -r
+]0;logadmin@log-01: ~/.puppet/moduleslogadmin@log-01:~/.puppet/modules$ cd @[K~
+]0;logadmin@log-01: ~logadmin@log-01:~$ cd puppet/
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd modules/
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ ls
+[0m[01;34mlogstash[0m  [01;34mpuppet[0m
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ cd lod[Kgstash/
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ ls
+CHANGELOG  CONTRIBUTORS  [0m[01;34mfiles[0m  [01;34mlib[0m  LICENSE  [01;34mlogstash[0m  [01;31mlogstash-1.2.1-flatjar.jar[0m  [01;34mmanifests[0m  metadata.json  Modulefile  Rakefile  README.md  [01;34mspec[0m  [01;34mtemplates[0m
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ cd logstash/
+]0;logadmin@log-01: ~/puppet/modules/logstash/logstashlogadmin@log-01:~/puppet/modules/logstash/logstash$ ;s
+bash: syntax error near unexpected token `;'
+]0;logadmin@log-01: ~/puppet/modules/logstash/logstashlogadmin@log-01:~/puppet/modules/logstash/logstash$ ls
+CHANGELOG  CONTRIBUTORS  [0m[01;34mfiles[0m  [01;34mlib[0m  LICENSE  [01;34mmanifests[0m  metadata.json  Modulefile  Rakefile  README.md  [01;34mspec[0m  [01;34mtemplates[0m
+]0;logadmin@log-01: ~/puppet/modules/logstash/logstashlogadmin@log-01:~/puppet/modules/logstash/logstash$ cd ..
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ rm logstash -r
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ ls
+CHANGELOG  CONTRIBUTORS  [0m[01;34mfiles[0m  [01;34mlib[0m  LICENSE  [01;31mlogstash-1.2.1-flatjar.jar[0m  [01;34mmanifests[0m  metadata.json  Modulefile  Rakefile  README.md  [01;34mspec[0m  [01;34mtemplates[0m
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ cd manifests/
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ ls
+configdir.pp  config.pp  [0m[01;34mfilter[0m  init.pp  [01;34minput[0m  java.pp  [01;34moutput[0m  package.pp  params.pp  servicefile.pp  service.pp
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ ca tini[K[K[K[K[Kt b[Kinit.pp
+# == Class: logstash
+#
+# This class is able to install or remove logstash on a node.
+# It manages the status of the related service.
+#
+#
+# === Parameters
+#
+# [*ensure*]
+#   String. Controls if the managed resources shall be <tt>present</tt> or
+#   <tt>absent</tt>. If set to <tt>absent</tt>:
+#   * The managed software packages are being uninstalled.
+#   * Any traces of the packages will be purged as good as possible. This may
+#     include existing configuration files. The exact behavior is provider
+#     dependent. Q.v.:
+#     * Puppet type reference: {package, "purgeable"}[http://j.mp/xbxmNP]
+#     * {Puppet's package provider source code}[http://j.mp/wtVCaL]
+#   * System modifications (if any) will be reverted as good as possible
+#     (e.g. removal of created users, services, changed log settings, ...).
+#   * This is thus destructive and should be used with care.
+#   Defaults to <tt>present</tt>.
+#
+# [*autoupgrade*]
+#   Boolean. If set to <tt>true</tt>, any managed package gets upgraded
+#   on each Puppet run when the package provider is able to find a newer
+#   version than the present one. The exact behavior is provider dependent.
+#   Q.v.:
+#   * Puppet type reference: {package, "upgradeable"}[http://j.mp/xbxmNP]
+#   * {Puppet's package provider source code}[http://j.mp/wtVCaL]
+#   Defaults to <tt>false</tt>.
+#
+# [*status*]
+#   String to define the status of the service. Possible values:
+#   * <tt>enabled</tt>: Service is running and will be started at boot time.
+#   * <tt>disabled</tt>: Service is stopped and will not be started at boot
+#     time.
+#   * <tt>running</tt>: Service is running but will not be started at boot time.
+#     You can use this to start a service on the first Puppet run instead of
+#     the system startup.
+#   * <tt>unmanaged</tt>: Service will not be started at boot time and Puppet
+#     does not care whether the service is running or not. For example, this may
+#     be useful if a cluster management software is used to decide when to start
+#     the service plus assuring it is running on the desired node.
+#   Defaults to <tt>enabled</tt>. The singular form ("service") is used for the
+#   sake of convenience. Of course, the defined status affects all services if
+#   more than one is managed (see <tt>service.pp</tt> to check if this is the
+#   case).
+#
+# [*version*]
+#   String to set the specific version you want to install.
+#   Defaults to <tt>false</tt>.
+#
+# The default values for the parameters are set in logstash::params. Have
+# a look at the corresponding <tt>params.pp</tt> manifest file if you need more
+# technical information about them.
+#
+#
+# === Examples
+#
+# * Installation, make sure service is running and will be started at boot time:
+#     class { 'logstash': }
+#
+# * Removal/decommissioning:
+#     class { 'logstash':
+#       ensure => 'absent',
+#     }
+#
+# * Install everything but disable service(s) afterwards
+#     class { 'logstash':
+#       status => 'disabled',
+#     }
+#
+#
+# === Authors
+#
+# * Richard Pijnenburg <mailto:richard@ispavailability.com>
+#
+class logstash(
+  $ensure         = $logstash::params::ensure,
+  $autoupgrade    = $logstash::params::autoupgrade,
+  $status         = $logstash::params::status,
+  $version        = false,
+  $provider       = 'package',
+  $jarfile        = undef,
+  $installpath    = $logstash::params::installpath,
+  $java_install   = false,
+  $java_package   = undef,
+  $instances      = [ 'agent' ],
+  $multi_instance = true,
+  $initfiles      = undef,
+  $defaultsfiles  = undef,
+  $logstash_user  = $logstash::params::logstash_user,
+  $logstash_group = $logstash::params::logstash_group
+) inherits logstash::params {
+
+  anchor {'logstash::begin': }
+  anchor {'logstash::end': }
+
+  #### Validate parameters
+
+  # ensure
+  if ! ($ensure in [ 'present', 'absent' ]) {
+    fail("\"${ensure}\" is not a valid ensure parameter value")
+  }
+
+  # autoupgrade
+  validate_bool($autoupgrade)
+
+  # service status
+  if ! ($status in [ 'enabled', 'disabled', 'running', 'unmanaged' ]) {
+    fail("\"${status}\" is not a valid status parameter value")
+  }
+
+  if $initfiles {
+    if $multi_instance == true {
+      validate_hash($initfiles)
+    } else {
+      validate_string($initfiles)
+    }
+  }
+
+  if $defaultsfiles {
+    if $multi_instance == true {
+      validate_hash($defaultsfiles)
+    } else {
+      validate_string($defaultsfiles)
+    }
+  }
+
+  #### Manage actions
+
+  # package(s)
+  class { 'logstash::package': }
+
+  # configuration
+  class { 'logstash::config': }
+
+  # service(s)
+  class { 'logstash::service': }
+
+  if $java_install == true {
+    # Install java
+    class { 'logstash::java': }
+
+    # ensure we first java java and then manage the service
+    Anchor['logstash::begin']
+    -> Class['logstash::java']
+    -> Class['logstash::service']
+  }
+
+  #### Manage relationships
+
+  if $ensure == 'present' {
+    # we need the software before configuring it
+    Anchor['logstash::begin']
+    -> Class['logstash::package']
+    -> Class['logstash::config']
+
+    # we need the software and a working configuration before running a service
+    Class['logstash::package'] -> Class['logstash::service']
+    Class['logstash::config']  -> Class['logstash::service']
+
+    Class['logstash::service'] -> Anchor['logstash::end']
+
+  } else {
+
+    # make sure all services are getting stopped before software removal
+    Anchor['logstash::begin']
+    -> Class['logstash::service']
+    -> Class['logstash::package']
+    -> Anchor['logstash::end']
+  }
+}
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ d '
+> ^C
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ cd ~
+]0;logadmin@log-01: ~logadmin@log-01:~$ cd puppet/
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ bash push.sh 
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	modified:   manifests/nodes.pp
+#	modified:   modules/logstash/files/logstash
+#	modified:   modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	modules/logstash/CHANGELOG
+#	modules/logstash/CONTRIBUTORS
+#	modules/logstash/LICENSE
+#	modules/logstash/Modulefile
+#	modules/logstash/README.md
+#	modules/logstash/Rakefile
+#	modules/logstash/files/etc/
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/lib/
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	modules/logstash/manifests/config.pp
+#	modules/logstash/manifests/configdir.pp
+#	modules/logstash/manifests/filter/
+#	modules/logstash/manifests/input/
+#	modules/logstash/manifests/java.pp
+#	modules/logstash/manifests/output/
+#	modules/logstash/manifests/package.pp
+#	modules/logstash/manifests/params.pp
+#	modules/logstash/manifests/service.pp
+#	modules/logstash/manifests/servicefile.pp
+#	modules/logstash/metadata.json
+#	modules/logstash/spec/
+#	modules/logstash/templates/
+#	push.sh
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates 
+Already up-to-date.
+[1;31mError: Invalid parameter conffile at /home/logadmin/puppet/manifests/nodes.pp:9 on node log-01.datacentre.esendex.com[0m
+[1;31mError: Invalid parameter conffile at /home/logadmin/puppet/manifests/nodes.pp:9 on node log-01.datacentre.esendex.com[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ nano /[Kmanifests/nodes.pp 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                File: manifests/nodes.pp                                                                                                      [3;1H(B[mnode 'log-01' {[4;3Hinclude puppet[5;3Hclass { 'logstash':[6;5Hprovider[20G=> 'custom',[7;5Hjarfile[7;20H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[8;5Hlogstash_user  => 'logadmin',[9;5Hlogstash_group => 'logadmin',[10;5Hconffile[20G=> 'puppet:///modules/logstash/logstash.conf'[11;3H}[12d}[13dnode 'log-02' {[14;3Hinclude puppet[15d}[52;87H(B[0;7m[ Read 13 lines ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[4d[5d[6d[7d[8d[9d[10d  [10;65H[1;181H(B[0;7mModified[10;65H(B[m,[52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write: manifests/nodes.pp                      [53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;39H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 13 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ nano manifests/nodes.pp [11Ppull-updates[Cbash push.sh[C
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	modified:   manifests/nodes.pp
+#	modified:   modules/logstash/files/logstash
+#	modified:   modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	modules/logstash/CHANGELOG
+#	modules/logstash/CONTRIBUTORS
+#	modules/logstash/LICENSE
+#	modules/logstash/Modulefile
+#	modules/logstash/README.md
+#	modules/logstash/Rakefile
+#	modules/logstash/files/etc/
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/lib/
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	modules/logstash/manifests/config.pp
+#	modules/logstash/manifests/configdir.pp
+#	modules/logstash/manifests/filter/
+#	modules/logstash/manifests/input/
+#	modules/logstash/manifests/java.pp
+#	modules/logstash/manifests/output/
+#	modules/logstash/manifests/package.pp
+#	modules/logstash/manifests/params.pp
+#	modules/logstash/manifests/service.pp
+#	modules/logstash/manifests/servicefile.pp
+#	modules/logstash/metadata.json
+#	modules/logstash/spec/
+#	modules/logstash/templates/
+#	push.sh
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ bash push.sh [11@nano manifests/nodes.pp[C[11Ppull-updates[C
+Already up-to-date.
+[1;31mError: Invalid parameter conffile at /home/logadmin/puppet/manifests/nodes.pp:9 on node log-01.datacentre.esendex.com[0m
+[1;31mError: Invalid parameter conffile at /home/logadmin/puppet/manifests/nodes.pp:9 on node log-01.datacentre.esendex.com[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates bash push.sh[C[11@nano manifests/nodes.pp[C
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                File: manifests/nodes.pp                                                                                                      [3;1H(B[mnode 'log-01' {[4;3Hinclude puppet[5;3Hclass { 'logstash':[6;5Hprovider[20G=> 'custom',[7;5Hjarfile[7;20H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[8;5Hlogstash_user  => 'logadmin',[9;5Hlogstash_group => 'logadmin',[10;5Hconffile[20G=> 'puppet:///modules/logstash/logstash.conf',[11;3H}[12d}[13dnode 'log-02' {[14;3Hinclude puppet[15d}[52;87H(B[0;7m[ Read 13 lines ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[4d[5d[6d[7d[8d[9d[10d[11d[12d[A [A [11d}7[12;51r8[12dM[1;54r[1;181H(B[0;7mModified[12d(B[m7[12;52r8[8T[1;54r[12;1Hlogstash::input::syslog { 'logstash-syslog':[13;4Htype => 'syslog',[14;4Hport => '5544',[15d }[17dlogstash::output::redis { 'logstash-redis':[18;4Hhost[14G=> [$::fqdn],[19;4Hdata_type => 'list',[20d }[54;1H[?1049l[?1l>Use "fg" to return to nano.
+
+[1]+  Stopped                 nano manifests/nodes.pp
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ nano manifests/nodes.pp 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                File: manifests/nodes.pp                                                                                                      [3;1H(B[mnode 'log-01' {[4;3Hinclude puppet[5;3Hclass { 'logstash':[6;5Hprovider[20G=> 'custom',[7;5Hjarfile[7;20H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[8;5Hlogstash_user  => 'logadmin',[9;5Hlogstash_group => 'logadmin',[10;5Hconffile[20G=> 'puppet:///modules/logstash/logstash.conf',[11;3H}[12d}[13dnode 'log-02' {[14;3Hinclude puppet[15d}[52;87H(B[0;7m[ Read 13 lines ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[4d[5d[6d[7d[8d[9d[10d[11d  }7[12;51r8[12dM[1;54r[1;181H(B[0;7mModified[12d(B[m[A[A   [1P   [1P[1P[1P[1P[1P[1P[1P[10G[1K[1P[52d[K[10;4H[1P   [1P   [1P   [1P   [1P   [1P   [1P   [1P[1P[1P   [1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1Ponf',[K   nf',[Kf',[K',[K,[K[K   [10;52r[52;1H
+[1;54r[9;34H[10;4H7[11;52r8[11dM[1;54r[11;1H  include logstash:co  :collector[52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write: manifests/nodes.pp                      [53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;39H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 14 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd modules/p[Klogstash/
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ ls
+CHANGELOG  CONTRIBUTORS  [0m[01;34mfiles[0m  [01;34mlib[0m  LICENSE  [01;31mlogstash-1.2.1-flatjar.jar[0m  [01;34mmanifests[0m  metadata.json  Modulefile  Rakefile  README.md  [01;34mspec[0m  [01;34mtemplates[0m
+]0;logadmin@log-01: ~/puppet/modules/logstashlogadmin@log-01:~/puppet/modules/logstash$ cd manifests/
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ ls
+configdir.pp  config.pp  [0m[01;34mfilter[0m  init.pp  [01;34minput[0m  java.pp  [01;34moutput[0m  package.pp  params.pp  servicefile.pp  service.pp
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ cat cob[Knfig.pp
+# == Class: logstash::config
+#
+# This class exists to coordinate all configuration related actions,
+# functionality and logical units in a central place.
+#
+#
+# === Parameters
+#
+# This class does not provide any parameters.
+#
+#
+# === Examples
+#
+# This class may be imported by other classes to use its functionality:
+#   class { 'logstash::config': }
+#
+# It is not intended to be used directly by external resources like node
+# definitions or other modules.
+#
+#
+# === Authors
+#
+# * Richard Pijnenburg <mailto:richard@ispavailability.com>
+#
+class logstash::config {
+
+  File {
+    owner => $logstash::logstash_user,
+    group => $logstash::logstash_group
+  }
+
+  if $logstash::multi_instance == true {
+
+    # Setup and manage config dirs for the instances
+    logstash::configdir { $logstash::instances:; }
+
+  } else {
+
+    # Manage the single config dir
+    file { "${logstash::configdir}/conf.d":
+      ensure  => directory,
+      mode    => '0640',
+      purge   => true,
+      recurse => true,
+      notify  => Service['logstash']
+    }
+  }
+
+  $tmp_dir = "${logstash::installpath}/tmp"
+
+  #### Create the tmp dir
+  exec { 'create_tmp_dir':
+    cwd     => '/',
+    path    => ['/usr/bin', '/bin'],
+    command => "mkdir -p ${tmp_dir}",
+    creates => $tmp_dir;
+  }
+
+  file { $tmp_dir:
+    ensure  => directory,
+    mode    => '0640',
+    require => Exec[ 'create_tmp_dir' ]
+  }
+
+}
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ ls
+configdir.pp  config.pp  [0m[01;34mfilter[0m  init.pp  [01;34minput[0m  java.pp  [01;34moutput[0m  package.pp  params.pp  servicefile.pp  service.pp
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ lscat config.pp[K[K[K[K[K[K[K[K[Kinit.pp
+# == Class: logstash
+#
+# This class is able to install or remove logstash on a node.
+# It manages the status of the related service.
+#
+#
+# === Parameters
+#
+# [*ensure*]
+#   String. Controls if the managed resources shall be <tt>present</tt> or
+#   <tt>absent</tt>. If set to <tt>absent</tt>:
+#   * The managed software packages are being uninstalled.
+#   * Any traces of the packages will be purged as good as possible. This may
+#     include existing configuration files. The exact behavior is provider
+#     dependent. Q.v.:
+#     * Puppet type reference: {package, "purgeable"}[http://j.mp/xbxmNP]
+#     * {Puppet's package provider source code}[http://j.mp/wtVCaL]
+#   * System modifications (if any) will be reverted as good as possible
+#     (e.g. removal of created users, services, changed log settings, ...).
+#   * This is thus destructive and should be used with care.
+#   Defaults to <tt>present</tt>.
+#
+# [*autoupgrade*]
+#   Boolean. If set to <tt>true</tt>, any managed package gets upgraded
+#   on each Puppet run when the package provider is able to find a newer
+#   version than the present one. The exact behavior is provider dependent.
+#   Q.v.:
+#   * Puppet type reference: {package, "upgradeable"}[http://j.mp/xbxmNP]
+#   * {Puppet's package provider source code}[http://j.mp/wtVCaL]
+#   Defaults to <tt>false</tt>.
+#
+# [*status*]
+#   String to define the status of the service. Possible values:
+#   * <tt>enabled</tt>: Service is running and will be started at boot time.
+#   * <tt>disabled</tt>: Service is stopped and will not be started at boot
+#     time.
+#   * <tt>running</tt>: Service is running but will not be started at boot time.
+#     You can use this to start a service on the first Puppet run instead of
+#     the system startup.
+#   * <tt>unmanaged</tt>: Service will not be started at boot time and Puppet
+#     does not care whether the service is running or not. For example, this may
+#     be useful if a cluster management software is used to decide when to start
+#     the service plus assuring it is running on the desired node.
+#   Defaults to <tt>enabled</tt>. The singular form ("service") is used for the
+#   sake of convenience. Of course, the defined status affects all services if
+#   more than one is managed (see <tt>service.pp</tt> to check if this is the
+#   case).
+#
+# [*version*]
+#   String to set the specific version you want to install.
+#   Defaults to <tt>false</tt>.
+#
+# The default values for the parameters are set in logstash::params. Have
+# a look at the corresponding <tt>params.pp</tt> manifest file if you need more
+# technical information about them.
+#
+#
+# === Examples
+#
+# * Installation, make sure service is running and will be started at boot time:
+#     class { 'logstash': }
+#
+# * Removal/decommissioning:
+#     class { 'logstash':
+#       ensure => 'absent',
+#     }
+#
+# * Install everything but disable service(s) afterwards
+#     class { 'logstash':
+#       status => 'disabled',
+#     }
+#
+#
+# === Authors
+#
+# * Richard Pijnenburg <mailto:richard@ispavailability.com>
+#
+class logstash(
+  $ensure         = $logstash::params::ensure,
+  $autoupgrade    = $logstash::params::autoupgrade,
+  $status         = $logstash::params::status,
+  $version        = false,
+  $provider       = 'package',
+  $jarfile        = undef,
+  $installpath    = $logstash::params::installpath,
+  $java_install   = false,
+  $java_package   = undef,
+  $instances      = [ 'agent' ],
+  $multi_instance = true,
+  $initfiles      = undef,
+  $defaultsfiles  = undef,
+  $logstash_user  = $logstash::params::logstash_user,
+  $logstash_group = $logstash::params::logstash_group
+) inherits logstash::params {
+
+  anchor {'logstash::begin': }
+  anchor {'logstash::end': }
+
+  #### Validate parameters
+
+  # ensure
+  if ! ($ensure in [ 'present', 'absent' ]) {
+    fail("\"${ensure}\" is not a valid ensure parameter value")
+  }
+
+  # autoupgrade
+  validate_bool($autoupgrade)
+
+  # service status
+  if ! ($status in [ 'enabled', 'disabled', 'running', 'unmanaged' ]) {
+    fail("\"${status}\" is not a valid status parameter value")
+  }
+
+  if $initfiles {
+    if $multi_instance == true {
+      validate_hash($initfiles)
+    } else {
+      validate_string($initfiles)
+    }
+  }
+
+  if $defaultsfiles {
+    if $multi_instance == true {
+      validate_hash($defaultsfiles)
+    } else {
+      validate_string($defaultsfiles)
+    }
+  }
+
+  #### Manage actions
+
+  # package(s)
+  class { 'logstash::package': }
+
+  # configuration
+  class { 'logstash::config': }
+
+  # service(s)
+  class { 'logstash::service': }
+
+  if $java_install == true {
+    # Install java
+    class { 'logstash::java': }
+
+    # ensure we first java java and then manage the service
+    Anchor['logstash::begin']
+    -> Class['logstash::java']
+    -> Class['logstash::service']
+  }
+
+  #### Manage relationships
+
+  if $ensure == 'present' {
+    # we need the software before configuring it
+    Anchor['logstash::begin']
+    -> Class['logstash::package']
+    -> Class['logstash::config']
+
+    # we need the software and a working configuration before running a service
+    Class['logstash::package'] -> Class['logstash::service']
+    Class['logstash::config']  -> Class['logstash::service']
+
+    Class['logstash::service'] -> Anchor['logstash::end']
+
+  } else {
+
+    # make sure all services are getting stopped before software removal
+    Anchor['logstash::begin']
+    -> Class['logstash::service']
+    -> Class['logstash::package']
+    -> Anchor['logstash::end']
+  }
+}
+]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ nano collext[K[Kctor.pp
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                  File: collector.pp                                                                                                          [52;90H[ New File ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[1;181H(B[0;7mModified[3d(B[mlogstash::input::syslog { 'logstash-syslog':[4;4Htype => 'syslog',[5;4Hport => '5544',[6d }[52d[K[6d }[A[A[A[4d[5d[6d[7dlogstash::input::syslog { 'logstash-syslog':[8;4Htype => 'syslog',[9;4Hport => '5544',[10d }[A[A[A[A[7dlogstash::input[1P[1P[1P[1P[1Po::syslog { 'logstash-syslog':[7;12Hu::syslog { 'logstash-syslog':[7;13Ht::syslog { 'logstash-syslog':[7;14Hp::syslog { 'logstash-syslog':[7;15Hu::syslog { 'logstash-syslog':[7;16Ht::syslog { 'logstash-syslog':[7;17H::syslog[1P[1P[1P[1P[1P[1Pf { 'logstash-syslog':[7;20Hi { 'logstash-syslog':[7;21Hl { 'logstash-syslog':[7;22He { 'logstash-syslog':[7;23H { 'logstash-syslog':[K':[K':[K':[K':[K':[Kf':i':l':e':[8;21H',[K',[K',[K',[K',[K',[Kf',i',l',e',[9d[1P[1P[1P[1Pp => '5544',[5Ga => '5544',[6Gt => '5544',[7Gh => '5544',[8G[9;19H[A[A[A }[5;19H[A',[K',[K',[K',[K',[K',[Kt',c',p',[A::syslog[1P[1P[1P[1P[1P[1Pr { 'logstash-syslog':[3;19Hx { 'logstash-syslog':[3;20Ho { 'logstash-syslog':[3;21H[1P[1P[1Pt { 'logstash-syslog':[3;19Hc { 'logstash-syslog':[3;20Hp { 'logstash-syslog':[3;21H { 'logstash-syslog'':[K':[K':[K':[K':[K':[Kt':c':p':[4;18H[5d,[6;3H[7;18H[A }[5;18H4',[K',[K5',[K',[K3',33',6',66',[6;3H[7;17H[8d[9d4',[K',[K5',[K',[K/',t',m',p',-',',[K/',t',m',p',.',t',x',t',[52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write: collector.pp                            [53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;33H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 8 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppet/modules/logstash/manifestslogadmin@log-01:~/puppet/modules/logstash/manifests$ cd ~/
+]0;logadmin@log-01: ~logadmin@log-01:~$ cd puppet/
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ bash push.sh 
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	modified:   manifests/nodes.pp
+#	modified:   modules/logstash/files/logstash
+#	modified:   modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	modules/logstash/CHANGELOG
+#	modules/logstash/CONTRIBUTORS
+#	modules/logstash/LICENSE
+#	modules/logstash/Modulefile
+#	modules/logstash/README.md
+#	modules/logstash/Rakefile
+#	modules/logstash/files/etc/
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/lib/
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	modules/logstash/manifests/collector.pp
+#	modules/logstash/manifests/config.pp
+#	modules/logstash/manifests/configdir.pp
+#	modules/logstash/manifests/filter/
+#	modules/logstash/manifests/input/
+#	modules/logstash/manifests/java.pp
+#	modules/logstash/manifests/output/
+#	modules/logstash/manifests/package.pp
+#	modules/logstash/manifests/params.pp
+#	modules/logstash/manifests/service.pp
+#	modules/logstash/manifests/servicefile.pp
+#	modules/logstash/metadata.json
+#	modules/logstash/spec/
+#	modules/logstash/templates/
+#	push.sh
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates 
+Already up-to-date.
+[1;31mWarning: Config file /etc/puppet/hiera.yaml not found, using Hiera defaults[0m
+[1;31mError: Puppet::Parser::AST::Resource failed with error ArgumentError: Invalid resource type anchor at /home/logadmin/puppet/modules/logstash/manifests/init.pp:96 on node log-01.datacentre.esendex.com
+Wrapped exception:
+Invalid resource type anchor[0m
+[1;31mError: Puppet::Parser::AST::Resource failed with error ArgumentError: Invalid resource type anchor at /home/logadmin/puppet/modules/logstash/manifests/init.pp:96 on node log-01.datacentre.esendex.com[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ ^C
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ puppet module install puppetlabs/stdlib
+[mNotice: Preparing to install into /home/logadmin/.puppet/modules ...[0m
+[1;31mError: Could not install module 'puppetlabs-stdlib' (best)
+  Module 'puppetlabs-stdlib' (v4.1.0) is already installed
+    Use `puppet module upgrade` to install a different version
+    Use `puppet module install --force` to re-install only this module[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ puppet module install puppetlabs/stdlib[1P puppetlabs/stdlib[1P puppetlabs/stdlib[1P puppetlabs/stdlib[1P puppetlabs/stdlib[1P puppetlabs/stdlib[1P puppetlabs/stdlib[1P puppetlabs/stdlibu puppetlabs/stdlibp puppetlabs/stdlibg puppetlabs/stdlibr puppetlabs/stdliba puppetlabs/stdlibd puppetlabs/stdlibe puppetlabs/stdlib
+[mNotice: Preparing to upgrade 'puppetlabs-stdlib' ...[0m
+[mNotice: Found 'puppetlabs-stdlib' ([0;36mv4.1.0[m) in /home/logadmin/.puppet/modules ...[0m
+[mNotice: Downloading from https://forge.puppetlabs.com ...[0m
+[1;31mError: Could not upgrade module 'puppetlabs-stdlib' (v4.1.0 -> best: v4.1.0)
+  The installed version is already the best fit for the current dependencies
+    'ispavailability-logstash' (v0.3.3) requires 'puppetlabs-stdlib' (>= 3.0.0)
+    'puppetlabs-java' (v1.0.1) requires 'puppetlabs-stdlib' (>= 0.1.6)
+    Use `puppet module install --force` to re-install this module[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ puppet module upgrade puppetlabs/stdlibinstall[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cll-updates [K
+Already up-to-date.
+[1;31mWarning: Config file /etc/puppet/hiera.yaml not found, using Hiera defaults[0m
+[1;31mError: Puppet::Parser::AST::Resource failed with error ArgumentError: Invalid resource type anchor at /home/logadmin/puppet/modules/logstash/manifests/init.pp:96 on node log-01.datacentre.esendex.com
+Wrapped exception:
+Invalid resource type anchor[0m
+[1;31mError: Puppet::Parser::AST::Resource failed with error ArgumentError: Invalid resource type anchor at /home/logadmin/puppet/modules/logstash/manifests/init.pp:96 on node log-01.datacentre.esendex.com[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd [K[K[Kcd ..
+]0;logadmin@log-01: ~logadmin@log-01:~$ ls
+logadmin  [0m[01;34mpuppet[0m
+]0;logadmin@log-01: ~logadmin@log-01:~$ cd .puppet/
+]0;logadmin@log-01: ~/.puppetlogadmin@log-01:~/.puppet$ ls
+[0m[01;34mmodules[0m  [01;34mvar[0m
+]0;logadmin@log-01: ~/.puppetlogadmin@log-01:~/.puppet$ cd md[Kodules/
+]0;logadmin@log-01: ~/.puppet/moduleslogadmin@log-01:~/.puppet/modules$ ls
+[0m[01;34mjava[0m  [01;34mlogstash[0m  [01;34mstdlib[0m
+]0;logadmin@log-01: ~/.puppet/moduleslogadmin@log-01:~/.puppet/modules$ cd logstash/
+]0;logadmin@log-01: ~/.puppet/modules/logstashlogadmin@log-01:~/.puppet/modules/logstash$ ls
+CHANGELOG  CONTRIBUTORS  [0m[01;34mfiles[0m  [01;34mlib[0m  LICENSE  [01;34mmanifests[0m  metadata.json  Modulefile  Rakefile  README.md  [01;34mspec[0m  [01;34mtemplates[0m
+]0;logadmin@log-01: ~/.puppet/modules/logstashlogadmin@log-01:~/.puppet/modules/logstash$ cd mn
+bash: cd: mn: No such file or directory
+]0;logadmin@log-01: ~/.puppet/modules/logstashlogadmin@log-01:~/.puppet/modules/logstash$ ks[K[Kcd manifests/
+]0;logadmin@log-01: ~/.puppet/modules/logstash/manifestslogadmin@log-01:~/.puppet/modules/logstash/manifests$ ls
+configdir.pp  config.pp  [0m[01;34mfilter[0m  init.pp  [01;34minput[0m  java.pp  [01;34moutput[0m  package.pp  params.pp  servicefile.pp  service.pp
+]0;logadmin@log-01: ~/.puppet/modules/logstash/manifestslogadmin@log-01:~/.puppet/modules/logstash/manifests$ cd ..
+]0;logadmin@log-01: ~/.puppet/modules/logstashlogadmin@log-01:~/.puppet/modules/logstash$ cd ..
+]0;logadmin@log-01: ~/.puppet/moduleslogadmin@log-01:~/.puppet/modules$ ls
+[0m[01;34mjava[0m  [01;34mlogstash[0m  [01;34mstdlib[0m
+]0;logadmin@log-01: ~/.puppet/moduleslogadmin@log-01:~/.puppet/modules$ cd /etc/puppet
+]0;logadmin@log-01: /etc/puppetlogadmin@log-01:/etc/puppet$ ls
+[0m[01;34mmanifests[0m  [01;34mmodules[0m  puppet.conf  [01;34mtemplates[0m
+]0;logadmin@log-01: /etc/puppetlogadmin@log-01:/etc/puppet$ sudo nano puppet.conf 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                  File: puppet.conf                                                                                                           [3;1H(B[m[main][4dlogdir=/var/log/puppet[5dvardir=/var/lib/puppet[6dssldir=/var/lib/puppet/ssl[7drundir=/var/run/puppet[8dfactpath=$vardir/lib/facter[9dtemplatedir=$confdir/templates[11d[master][12d# These are needed when the puppetmaster is run by passenger[13d# and can safely be removed if webrick is used.[14dssl_client_header = SSL_CLIENT_S_DN[15dssl_client_verify_header = SSL_CLIENT_VERIFY[52;87H(B[0;7m[ Read 14 lines ][53d^G(B[m Get Help[53;32H(B[0;7m^
