@@ -1,0 +1,1548 @@
+Script started on Wed 25 Sep 2013 02:57:40 BST
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ sudo rebootgrep /home/logadmin/.puppet/modulesp[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10Ppuppet config print modulepathsudo nano /etc/puppet/puppet.conf[3Ppuppet config print modulepathsudo nano /etc/puppet/puppet.conf[3Ppuppet config print modulepath[8Pservice puppet restartudo nano ./usr/share/puppet/ext/debian/puppet.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[24Pfind -name puppet.confcd /[Ksudo nano /etc/puppet/puppet.conf[3Ppuppet config print modulepath[4P/etc/init.d/logstash start[13Ppull-updates 
+Already up-to-date.
+[1;31mWarning: Config file /etc/puppet/hiera.yaml not found, using Hiera defaults[0m
+[mNotice: Compiled catalog for log-01.datacentre.esendex.com in environment production in 0.85 seconds[0m
+[mNotice: Finished catalog run in 2.03 seconds[0m
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ top
+[H[2J(B[mtop - 02:58:25 up 29 min,  1 user,  load average: 0.17, 0.23, 0.19(B[m[39;49m[K
+Tasks:(B[m[39;49m(B[m  87 (B[m[39;49mtotal,(B[m[39;49m(B[m   1 (B[m[39;49mrunning,(B[m[39;49m(B[m  85 (B[m[39;49msleeping,(B[m[39;49m(B[m   1 (B[m[39;49mstopped,(B[m[39;49m(B[m   0 (B[m[39;49mzombie(B[m[39;49m[K
+Cpu(s):(B[m[39;49m(B[m  0.5%(B[m[39;49mus,(B[m[39;49m(B[m  0.5%(B[m[39;49msy,(B[m[39;49m(B[m  0.0%(B[m[39;49mni,(B[m[39;49m(B[m 98.7%(B[m[39;49mid,(B[m[39;49m(B[m  0.3%(B[m[39;49mwa,(B[m[39;49m(B[m  0.0%(B[m[39;49mhi,(B[m[39;49m(B[m  0.0%(B[m[39;49msi,(B[m[39;49m(B[m  0.0%(B[m[39;49mst(B[m[39;49m[K
+Mem: (B[m[39;49m(B[m  8178336k (B[m[39;49mtotal,(B[m[39;49m(B[m   724684k (B[m[39;49mused,(B[m[39;49m(B[m  7453652k (B[m[39;49mfree,(B[m[39;49m(B[m    55664k (B[m[39;49mbuffers(B[m[39;49m[K
+Swap:(B[m[39;49m(B[m  8388604k (B[m[39;49mtotal,(B[m[39;49m(B[m        0k (B[m[39;49mused,(B[m[39;49m(B[m  8388604k (B[m[39;49mfree,(B[m[39;49m(B[m   246632k (B[m[39;49mcached(B[m[39;49m[K
+[6;1H
+[7m  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                                                                          (B[m[39;49m[K
+(B[m    1 root      20   0 24324 2228 1344 S    0  0.0   0:01.53 init                                                                                                                             (B[m[39;49m
+(B[m    2 root      20   0     0    0    0 S    0  0.0   0:00.00 kthreadd                                                                                                                         (B[m[39;49m
+(B[m    3 root      20   0     0    0    0 S    0  0.0   0:00.00 ksoftirqd/0                                                                                                                      (B[m[39;49m
+(B[m    5 root      20   0     0    0    0 S    0  0.0   0:00.41 kworker/u:0                                                                                                                      (B[m[39;49m
+(B[m    6 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/0                                                                                                                      (B[m[39;49m
+(B[m    7 root      RT   0     0    0    0 S    0  0.0   0:00.02 watchdog/0                                                                                                                       (B[m[39;49m
+(B[m    8 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/1                                                                                                                      (B[m[39;49m
+(B[m   10 root      20   0     0    0    0 S    0  0.0   0:00.03 ksoftirqd/1                                                                                                                      (B[m[39;49m
+(B[m   11 root      20   0     0    0    0 S    0  0.0   0:00.15 kworker/0:1                                                                                                                      (B[m[39;49m
+(B[m   12 root      RT   0     0    0    0 S    0  0.0   0:00.00 watchdog/1                                                                                                                       (B[m[39;49m
+(B[m   13 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/2                                                                                                                      (B[m[39;49m
+(B[m   15 root      20   0     0    0    0 S    0  0.0   0:00.01 ksoftirqd/2                                                                                                                      (B[m[39;49m
+(B[m   16 root      RT   0     0    0    0 S    0  0.0   0:00.00 watchdog/2                                                                                                                       (B[m[39;49m
+(B[m   17 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/3                                                                                                                      (B[m[39;49m
+(B[m   19 root      20   0     0    0    0 S    0  0.0   0:00.00 ksoftirqd/3                                                                                                                      (B[m[39;49m
+(B[m   20 root      RT   0     0    0    0 S    0  0.0   0:00.00 watchdog/3                                                                                                                       (B[m[39;49m
+(B[m   21 root       0 -20     0    0    0 S    0  0.0   0:00.00 cpuset                                                                                                                           (B[m[39;49m
+(B[m   22 root       0 -20     0    0    0 S    0  0.0   0:00.00 khelper                                                                                                                          (B[m[39;49m
+(B[m   23 root      20   0     0    0    0 S    0  0.0   0:00.00 kdevtmpfs                                                                                                                        (B[m[39;49m
+(B[m   24 root       0 -20     0    0    0 S    0  0.0   0:00.00 netns                                                                                                                            (B[m[39;49m
+(B[m   25 root      20   0     0    0    0 S    0  0.0   0:00.04 kworker/u:1                                                                                                                      (B[m[39;49m
+(B[m   26 root      20   0     0    0    0 S    0  0.0   0:00.00 sync_supers                                                                                                                      (B[m[39;49m
+(B[m   27 root      20   0     0    0    0 S    0  0.0   0:00.00 bdi-default                                                                                                                      (B[m[39;49m
+(B[m   28 root       0 -20     0    0    0 S    0  0.0   0:00.00 kintegrityd                                                                                                                      (B[m[39;49m
+(B[m   29 root       0 -20     0    0    0 S    0  0.0   0:00.00 kblockd                                                                                                                          (B[m[39;49m
+(B[m   30 root       0 -20     0    0    0 S    0  0.0   0:00.00 ata_sff                                                                                                                          (B[m[39;49m
+(B[m   31 root      20   0     0    0    0 S    0  0.0   0:00.00 khubd                                                                                                                            (B[m[39;49m
+(B[m   32 root       0 -20     0    0    0 S    0  0.0   0:00.00 md                                                                                                                               (B[m[39;49m
+(B[m   33 root      20   0     0    0    0 S    0  0.0   0:00.06 kworker/1:1                                                                                                                      (B[m[39;49m
+(B[m   34 root      20   0     0    0    0 S    0  0.0   0:00.15 kworker/2:1                                                                                                                      (B[m[39;49m
+(B[m   35 root      20   0     0    0    0 S    0  0.0   0:00.06 kworker/3:1                                                                                                                      (B[m[39;49m
+(B[m   36 root      20   0     0    0    0 S    0  0.0   0:00.00 khungtaskd                                                                                                                       (B[m[39;49m
+(B[m   37 root      20   0     0    0    0 S    0  0.0   0:00.00 kswapd0                                                                                                                          (B[m[39;49m
+(B[m   38 root      25   5     0    0    0 S    0  0.0   0:00.00 ksmd                                                                                                                             (B[m[39;49m
+(B[m   39 root      39  19     0    0    0 S    0  0.0   0:00.00 khugepaged                                                                                                                       (B[m[39;49m
+(B[m   40 root      20   0     0    0    0 S    0  0.0   0:00.00 fsnotify_mark                                                                                                                    (B[m[39;49m
+(B[m   41 root      20   0     0    0    0 S    0  0.0   0:00.00 ecryptfs-kthrea                                                                                                                  (B[m[39;49m
+(B[m   42 root       0 -20     0    0    0 S    0  0.0   0:00.00 crypto                                                                                                                           (B[m[39;49m
+(B[m   50 root       0 -20     0    0    0 S    0  0.0   0:00.00 kthrotld                                                                                                                         (B[m[39;49m
+(B[m   51 root      20   0     0    0    0 S    0  0.0   0:00.00 scsi_eh_0                                                                                                                        (B[m[39;49m
+(B[m   52 root      20   0     0    0    0 S    0  0.0   0:00.03 scsi_eh_1                                                                                                                        (B[m[39;49m
+(B[m   73 root       0 -20     0    0    0 S    0  0.0   0:00.00 devfreq_wq                                                                                                                       (B[m[39;49m
+(B[m   74 root      20   0     0    0    0 S    0  0.0   0:00.00 kworker/3:2                                                                                                                      (B[m[39;49m
+(B[m  115 root      20   0     0    0    0 S    0  0.0   0:00.00 kworker/2:2                                                                                                                      (B[m[39;49m
+(B[m  180 root       0 -20     0    0    0 S    0  0.0   0:00.00 mpt_poll_0                                                                                                                       (B[m[39;49m
+(B[m  189 root       0 -20     0    0    0 S    0  0.0   0:00.00 mpt/0                                                                                                                            (B[m[39;49m
+(B[m  218 root      20   0     0    0    0 S    0  0.0   0:00.00 scsi_eh_2                                                                                                                        (B[m[39;49m[6;1H[K[H(B[mtop - 02:58:28 up 30 min,  1 user,  load average: 0.17, 0.23, 0.19(B[m[39;49m[K
+Tasks:(B[m[39;49m(B[m  87 (B[m[39;49mtotal,(B[m[39;49m(B[m   1 (B[m[39;49mrunning,(B[m[39;49m(B[m  85 (B[m[39;49msleeping,(B[m[39;49m(B[m   1 (B[m[39;49mstopped,(B[m[39;49m(B[m   0 (B[m[39;49mzombie(B[m[39;49m[K
+Cpu(s):(B[m[39;49m(B[m  0.1%(B[m[39;49mus,(B[m[39;49m(B[m  0.1%(B[m[39;49msy,(B[m[39;49m(B[m  0.0%(B[m[39;49mni,(B[m[39;49m(B[m 99.8%(B[m[39;49mid,(B[m[39;49m(B[m  0.0%(B[m[39;49mwa,(B[m[39;49m(B[m  0.0%(B[m[39;49mhi,(B[m[39;49m(B[m  0.0%(B[m[39;49msi,(B[m[39;49m(B[m  0.0%(B[m[39;49mst(B[m[39;49m[K
+Mem: (B[m[39;49m(B[m  8178336k (B[m[39;49mtotal,(B[m[39;49m(B[m   724824k (B[m[39;49mused,(B[m[39;49m(B[m  7453512k (B[m[39;49mfree,(B[m[39;49m(B[m    55672k (B[m[39;49mbuffers(B[m[39;49m[K
+Swap:(B[m[39;49m(B[m  8388604k (B[m[39;49mtotal,(B[m[39;49m(B[m        0k (B[m[39;49mused,(B[m[39;49m(B[m  8388604k (B[m[39;49mfree,(B[m[39;49m(B[m   246728k (B[m[39;49mcached(B[m[39;49m[K
+[6;1H
+
+(B[m 2899 root      20   0 1908m 240m  15m S    0  3.0   0:16.62 java                                                                                                                             (B[m[39;49m
+(B[m    1 root      20   0 24324 2228 1344 S    0  0.0   0:01.53 init                                                                                                                             (B[m[39;49m
+(B[m    2 root      20   0     0    0    0 S    0  0.0   0:00.00 kthreadd                                                                                                                         (B[m[39;49m
+(B[m    3 root      20   0     0    0    0 S    0  0.0   0:00.00 ksoftirqd/0                                                                                                                      (B[m[39;49m
+(B[m    5 root      20   0     0    0    0 S    0  0.0   0:00.41 kworker/u:0                                                                                                                      (B[m[39;49m
+(B[m    6 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/0                                                                                                                      (B[m[39;49m
+(B[m    7 root      RT   0     0    0    0 S    0  0.0   0:00.02 watchdog/0                                                                                                                       (B[m[39;49m
+(B[m    8 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/1                                                                                                                      (B[m[39;49m
+(B[m   10 root      20   0     0    0    0 S    0  0.0   0:00.03 ksoftirqd/1                                                                                                                      (B[m[39;49m
+(B[m   11 root      20   0     0    0    0 S    0  0.0   0:00.15 kworker/0:1                                                                                                                      (B[m[39;49m
+(B[m   12 root      RT   0     0    0    0 S    0  0.0   0:00.00 watchdog/1                                                                                                                       (B[m[39;49m
+(B[m   13 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/2                                                                                                                      (B[m[39;49m
+(B[m   15 root      20   0     0    0    0 S    0  0.0   0:00.01 ksoftirqd/2                                                                                                                      (B[m[39;49m
+(B[m   16 root      RT   0     0    0    0 S    0  0.0   0:00.00 watchdog/2                                                                                                                       (B[m[39;49m
+(B[m   17 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/3                                                                                                                      (B[m[39;49m
+(B[m   19 root      20   0     0    0    0 S    0  0.0   0:00.00 ksoftirqd/3                                                                                                                      (B[m[39;49m
+(B[m   20 root      RT   0     0    0    0 S    0  0.0   0:00.00 watchdog/3                                                                                                                       (B[m[39;49m
+(B[m   21 root       0 -20     0    0    0 S    0  0.0   0:00.00 cpuset                                                                                                                           (B[m[39;49m
+(B[m   22 root       0 -20     0    0    0 S    0  0.0   0:00.00 khelper                                                                                                                          (B[m[39;49m
+(B[m   23 root      20   0     0    0    0 S    0  0.0   0:00.00 kdevtmpfs                                                                                                                        (B[m[39;49m
+(B[m   24 root       0 -20     0    0    0 S    0  0.0   0:00.00 netns                                                                                                                            (B[m[39;49m
+(B[m   25 root      20   0     0    0    0 S    0  0.0   0:00.04 kworker/u:1                                                                                                                      (B[m[39;49m
+(B[m   26 root      20   0     0    0    0 S    0  0.0   0:00.00 sync_supers                                                                                                                      (B[m[39;49m
+(B[m   27 root      20   0     0    0    0 S    0  0.0   0:00.00 bdi-default                                                                                                                      (B[m[39;49m
+(B[m   28 root       0 -20     0    0    0 S    0  0.0   0:00.00 kintegrityd                                                                                                                      (B[m[39;49m
+(B[m   29 root       0 -20     0    0    0 S    0  0.0   0:00.00 kblockd                                                                                                                          (B[m[39;49m
+(B[m   30 root       0 -20     0    0    0 S    0  0.0   0:00.00 ata_sff                                                                                                                          (B[m[39;49m
+(B[m   31 root      20   0     0    0    0 S    0  0.0   0:00.00 khubd                                                                                                                            (B[m[39;49m
+(B[m   32 root       0 -20     0    0    0 S    0  0.0   0:00.00 md                                                                                                                               (B[m[39;49m
+(B[m   33 root      20   0     0    0    0 S    0  0.0   0:00.06 kworker/1:1                                                                                                                      (B[m[39;49m
+(B[m   34 root      20   0     0    0    0 S    0  0.0   0:00.15 kworker/2:1                                                                                                                      (B[m[39;49m
+(B[m   35 root      20   0     0    0    0 S    0  0.0   0:00.06 kworker/3:1                                                                                                                      (B[m[39;49m
+(B[m   36 root      20   0     0    0    0 S    0  0.0   0:00.00 khungtaskd                                                                                                                       (B[m[39;49m
+(B[m   37 root      20   0     0    0    0 S    0  0.0   0:00.00 kswapd0                                                                                                                          (B[m[39;49m
+(B[m   38 root      25   5     0    0    0 S    0  0.0   0:00.00 ksmd                                                                                                                             (B[m[39;49m
+(B[m   39 root      39  19     0    0    0 S    0  0.0   0:00.00 khugepaged                                                                                                                       (B[m[39;49m
+(B[m   40 root      20   0     0    0    0 S    0  0.0   0:00.00 fsnotify_mark                                                                                                                    (B[m[39;49m
+(B[m   41 root      20   0     0    0    0 S    0  0.0   0:00.00 ecryptfs-kthrea                                                                                                                  (B[m[39;49m
+(B[m   42 root       0 -20     0    0    0 S    0  0.0   0:00.00 crypto                                                                                                                           (B[m[39;49m
+(B[m   50 root       0 -20     0    0    0 S    0  0.0   0:00.00 kthrotld                                                                                                                         (B[m[39;49m
+(B[m   51 root      20   0     0    0    0 S    0  0.0   0:00.00 scsi_eh_0                                                                                                                        (B[m[39;49m
+(B[m   52 root      20   0     0    0    0 S    0  0.0   0:00.03 scsi_eh_1                                                                                                                        (B[m[39;49m
+(B[m   73 root       0 -20     0    0    0 S    0  0.0   0:00.00 devfreq_wq                                                                                                                       (B[m[39;49m
+(B[m   74 root      20   0     0    0    0 S    0  0.0   0:00.00 kworker/3:2                                                                                                                      (B[m[39;49m
+(B[m  115 root      20   0     0    0    0 S    0  0.0   0:00.00 kworker/2:2                                                                                                                      (B[m[39;49m
+(B[m  180 root       0 -20     0    0    0 S    0  0.0   0:00.00 mpt_poll_0                                                                                                                       (B[m[39;49m
+(B[m  189 root       0 -20     0    0    0 S    0  0.0   0:00.00 mpt/0                                                                                                                            (B[m[39;49m[6;1H[K[H(B[mtop - 02:58:31 up 30 min,  1 user,  load average: 0.15, 0.22, 0.18(B[m[39;49m[K
+Tasks:(B[m[39;49m(B[m  87 (B[m[39;49mtotal,(B[m[39;49m(B[m   1 (B[m[39;49mrunning,(B[m[39;49m(B[m  85 (B[m[39;49msleeping,(B[m[39;49m(B[m   1 (B[m[39;49mstopped,(B[m[39;49m(B[m   0 (B[m[39;49mzombie(B[m[39;49m[K
+Cpu(s):(B[m[39;49m(B[m  0.0%(B[m[39;49mus,(B[m[39;49m(B[m  0.0%(B[m[39;49msy,(B[m[39;49m(B[m  0.0%(B[m[39;49mni,(B[m[39;49m(B[m100.0%(B[m[39;49mid,(B[m[39;49m(B[m  0.0%(B[m[39;49mwa,(B[m[39;49m(B[m  0.0%(B[m[39;49mhi,(B[m[39;49m(B[m  0.0%(B[m[39;49msi,(B[m[39;49m(B[m  0.0%(B[m[39;49mst(B[m[39;49m[K
+Mem: (B[m[39;49m(B[m  8178336k (B[m[39;49mtotal,(B[m[39;49m(B[m   724824k (B[m[39;49mused,(B[m[39;49m(B[m  7453512k (B[m[39;49mfree,(B[m[39;49m(B[m    55672k (B[m[39;49mbuffers(B[m[39;49m[K
+Swap:(B[m[39;49m(B[m  8388604k (B[m[39;49mtotal,(B[m[39;49m(B[m        0k (B[m[39;49mused,(B[m[39;49m(B[m  8388604k (B[m[39;49mfree,(B[m[39;49m(B[m   246736k (B[m[39;49mcached(B[m[39;49m[K
+[6;1H
+
+(B[m    1 root      20   0 24324 2228 1344 S    0  0.0   0:01.53 init                                                                                                                             (B[m[39;49m
+(B[m    2 root      20   0     0    0    0 S    0  0.0   0:00.00 kthreadd                                                                                                                         (B[m[39;49m
+(B[m    3 root      20   0     0    0    0 S    0  0.0   0:00.00 ksoftirqd/0                                                                                                                      (B[m[39;49m
+(B[m    5 root      20   0     0    0    0 S    0  0.0   0:00.41 kworker/u:0                                                                                                                      (B[m[39;49m
+(B[m    6 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/0                                                                                                                      (B[m[39;49m
+(B[m    7 root      RT   0     0    0    0 S    0  0.0   0:00.02 watchdog/0                                                                                                                       (B[m[39;49m
+(B[m    8 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/1                                                                                                                      (B[m[39;49m
+(B[m   10 root      20   0     0    0    0 S    0  0.0   0:00.03 ksoftirqd/1                                                                                                                      (B[m[39;49m
+(B[m   11 root      20   0     0    0    0 S    0  0.0   0:00.15 kworker/0:1                                                                                                                      (B[m[39;49m
+(B[m   12 root      RT   0     0    0    0 S    0  0.0   0:00.00 watchdog/1                                                                                                                       (B[m[39;49m
+(B[m   13 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/2                                                                                                                      (B[m[39;49m
+(B[m   15 root      20   0     0    0    0 S    0  0.0   0:00.01 ksoftirqd/2                                                                                                                      (B[m[39;49m
+(B[m   16 root      RT   0     0    0    0 S    0  0.0   0:00.00 watchdog/2                                                                                                                       (B[m[39;49m
+(B[m   17 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/3                                                                                                                      (B[m[39;49m
+(B[m   19 root      20   0     0    0    0 S    0  0.0   0:00.00 ksoftirqd/3                                                                                                                      (B[m[39;49m
+(B[m   20 root      RT   0     0    0    0 S    0  0.0   0:00.00 watchdog/3                                                                                                                       (B[m[39;49m
+(B[m   21 root       0 -20     0    0    0 S    0  0.0   0:00.00 cpuset                                                                                                                           (B[m[39;49m
+(B[m   22 root       0 -20     0    0    0 S    0  0.0   0:00.00 khelper                                                                                                                          (B[m[39;49m
+(B[m   23 root      20   0     0    0    0 S    0  0.0   0:00.00 kdevtmpfs                                                                                                                        (B[m[39;49m
+(B[m   24 root       0 -20     0    0    0 S    0  0.0   0:00.00 netns                                                                                                                            (B[m[39;49m
+(B[m   25 root      20   0     0    0    0 S    0  0.0   0:00.04 kworker/u:1                                                                                                                      (B[m[39;49m
+(B[m   26 root      20   0     0    0    0 S    0  0.0   0:00.00 sync_supers                                                                                                                      (B[m[39;49m
+(B[m   27 root      20   0     0    0    0 S    0  0.0   0:00.00 bdi-default                                                                                                                      (B[m[39;49m
+(B[m   28 root       0 -20     0    0    0 S    0  0.0   0:00.00 kintegrityd                                                                                                                      (B[m[39;49m
+(B[m   29 root       0 -20     0    0    0 S    0  0.0   0:00.00 kblockd                                                                                                                          (B[m[39;49m
+(B[m   30 root       0 -20     0    0    0 S    0  0.0   0:00.00 ata_sff                                                                                                                          (B[m[39;49m
+(B[m   31 root      20   0     0    0    0 S    0  0.0   0:00.00 khubd                                                                                                                            (B[m[39;49m
+(B[m   32 root       0 -20     0    0    0 S    0  0.0   0:00.00 md                                                                                                                               (B[m[39;49m
+(B[m   33 root      20   0     0    0    0 S    0  0.0   0:00.06 kworker/1:1                                                                                                                      (B[m[39;49m
+(B[m   34 root      20   0     0    0    0 S    0  0.0   0:00.15 kworker/2:1                                                                                                                      (B[m[39;49m
+(B[m   35 root      20   0     0    0    0 S    0  0.0   0:00.06 kworker/3:1                                                                                                                      (B[m[39;49m
+(B[m   36 root      20   0     0    0    0 S    0  0.0   0:00.00 khungtaskd                                                                                                                       (B[m[39;49m
+(B[m   37 root      20   0     0    0    0 S    0  0.0   0:00.00 kswapd0                                                                                                                          (B[m[39;49m
+(B[m   38 root      25   5     0    0    0 S    0  0.0   0:00.00 ksmd                                                                                                                             (B[m[39;49m
+(B[m   39 root      39  19     0    0    0 S    0  0.0   0:00.00 khugepaged                                                                                                                       (B[m[39;49m
+(B[m   40 root      20   0     0    0    0 S    0  0.0   0:00.00 fsnotify_mark                                                                                                                    (B[m[39;49m
+(B[m   41 root      20   0     0    0    0 S    0  0.0   0:00.00 ecryptfs-kthrea                                                                                                                  (B[m[39;49m
+(B[m   42 root       0 -20     0    0    0 S    0  0.0   0:00.00 crypto                                                                                                                           (B[m[39;49m
+(B[m   50 root       0 -20     0    0    0 S    0  0.0   0:00.00 kthrotld                                                                                                                         (B[m[39;49m
+(B[m   51 root      20   0     0    0    0 S    0  0.0   0:00.00 scsi_eh_0                                                                                                                        (B[m[39;49m
+(B[m   52 root      20   0     0    0    0 S    0  0.0   0:00.03 scsi_eh_1                                                                                                                        (B[m[39;49m
+(B[m   73 root       0 -20     0    0    0 S    0  0.0   0:00.00 devfreq_wq                                                                                                                       (B[m[39;49m
+(B[m   74 root      20   0     0    0    0 S    0  0.0   0:00.00 kworker/3:2                                                                                                                      (B[m[39;49m
+(B[m  115 root      20   0     0    0    0 S    0  0.0   0:00.00 kworker/2:2                                                                                                                      (B[m[39;49m
+(B[m  180 root       0 -20     0    0    0 S    0  0.0   0:00.00 mpt_poll_0                                                                                                                       (B[m[39;49m
+(B[m  189 root       0 -20     0    0    0 S    0  0.0   0:00.00 mpt/0                                                                                                                            (B[m[39;49m
+(B[m  218 root      20   0     0    0    0 S    0  0.0   0:00.00 scsi_eh_2                                                                                                                        (B[m[39;49m[6;1H[K[H(B[mtop - 02:58:34 up 30 min,  1 user,  load average: 0.15, 0.22, 0.18(B[m[39;49m[K
+Tasks:(B[m[39;49m(B[m  87 (B[m[39;49mtotal,(B[m[39;49m(B[m   1 (B[m[39;49mrunning,(B[m[39;49m(B[m  85 (B[m[39;49msleeping,(B[m[39;49m(B[m   1 (B[m[39;49mstopped,(B[m[39;49m(B[m   0 (B[m[39;49mzombie(B[m[39;49m[K
+Cpu(s):(B[m[39;49m(B[m  0.0%(B[m[39;49mus,(B[m[39;49m(B[m  0.1%(B[m[39;49msy,(B[m[39;49m(B[m  0.0%(B[m[39;49mni,(B[m[39;49m(B[m 99.9%(B[m[39;49mid,(B[m[39;49m(B[m  0.0%(B[m[39;49mwa,(B[m[39;49m(B[m  0.0%(B[m[39;49mhi,(B[m[39;49m(B[m  0.0%(B[m[39;49msi,(B[m[39;49m(B[m  0.0%(B[m[39;49mst(B[m[39;49m[K
+Mem: (B[m[39;49m(B[m  8178336k (B[m[39;49mtotal,(B[m[39;49m(B[m   724824k (B[m[39;49mused,(B[m[39;49m(B[m  7453512k (B[m[39;49mfree,(B[m[39;49m(B[m    55680k (B[m[39;49mbuffers(B[m[39;49m[K
+Swap:(B[m[39;49m(B[m  8388604k (B[m[39;49mtotal,(B[m[39;49m(B[m        0k (B[m[39;49mused,(B[m[39;49m(B[m  8388604k (B[m[39;49mfree,(B[m[39;49m(B[m   246740k (B[m[39;49mcached(B[m[39;49m[K
+[6;1H
+
+(B[m(B[m 3397 logadmin  20   0 17332 1264  944 R    0  0.0   0:00.01 top                                                                                                                              (B[m[39;49m
+(B[m    1 root      20   0 24324 2228 1344 S    0  0.0   0:01.53 init                                                                                                                             (B[m[39;49m
+(B[m    2 root      20   0     0    0    0 S    0  0.0   0:00.00 kthreadd                                                                                                                         (B[m[39;49m
+(B[m    3 root      20   0     0    0    0 S    0  0.0   0:00.00 ksoftirqd/0                                                                                                                      (B[m[39;49m
+(B[m    5 root      20   0     0    0    0 S    0  0.0   0:00.41 kworker/u:0                                                                                                                      (B[m[39;49m
+(B[m    6 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/0                                                                                                                      (B[m[39;49m
+(B[m    7 root      RT   0     0    0    0 S    0  0.0   0:00.02 watchdog/0                                                                                                                       (B[m[39;49m
+(B[m    8 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/1                                                                                                                      (B[m[39;49m
+(B[m   10 root      20   0     0    0    0 S    0  0.0   0:00.03 ksoftirqd/1                                                                                                                      (B[m[39;49m
+(B[m   11 root      20   0     0    0    0 S    0  0.0   0:00.15 kworker/0:1                                                                                                                      (B[m[39;49m
+(B[m   12 root      RT   0     0    0    0 S    0  0.0   0:00.00 watchdog/1                                                                                                                       (B[m[39;49m
+(B[m   13 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/2                                                                                                                      (B[m[39;49m
+(B[m   15 root      20   0     0    0    0 S    0  0.0   0:00.01 ksoftirqd/2                                                                                                                      (B[m[39;49m
+(B[m   16 root      RT   0     0    0    0 S    0  0.0   0:00.00 watchdog/2                                                                                                                       (B[m[39;49m
+(B[m   17 root      RT   0     0    0    0 S    0  0.0   0:00.00 migration/3                                                                                                                      (B[m[39;49m
+(B[m   19 root      20   0     0    0    0 S    0  0.0   0:00.00 ksoftirqd/3                                                                                                                      (B[m[39;49m
+(B[m   20 root      RT   0     0    0    0 S    0  0.0   0:00.00 watchdog/3                                                                                                                       (B[m[39;49m
+(B[m   21 root       0 -20     0    0    0 S    0  0.0   0:00.00 cpuset                                                                                                                           (B[m[39;49m
+(B[m   22 root       0 -20     0    0    0 S    0  0.0   0:00.00 khelper                                                                                                                          (B[m[39;49m
+(B[m   23 root      20   0     0    0    0 S    0  0.0   0:00.00 kdevtmpfs                                                                                                                        (B[m[39;49m
+(B[m   24 root       0 -20     0    0    0 S    0  0.0   0:00.00 netns                                                                                                                            (B[m[39;49m
+(B[m   25 root      20   0     0    0    0 S    0  0.0   0:00.04 kworker/u:1                                                                                                                      (B[m[39;49m
+(B[m   26 root      20   0     0    0    0 S    0  0.0   0:00.00 sync_supers                                                                                                                      (B[m[39;49m
+(B[m   27 root      20   0     0    0    0 S    0  0.0   0:00.00 bdi-default                                                                                                                      (B[m[39;49m
+(B[m   28 root       0 -20     0    0    0 S    0  0.0   0:00.00 kintegrityd                                                                                                                      (B[m[39;49m
+(B[m   29 root       0 -20     0    0    0 S    0  0.0   0:00.00 kblockd                                                                                                                          (B[m[39;49m
+(B[m   30 root       0 -20     0    0    0 S    0  0.0   0:00.00 ata_sff                                                                                                                          (B[m[39;49m
+(B[m   31 root      20   0     0    0    0 S    0  0.0   0:00.00 khubd                                                                                                                            (B[m[39;49m
+(B[m   32 root       0 -20     0    0    0 S    0  0.0   0:00.00 md                                                                                                                               (B[m[39;49m
+(B[m   33 root      20   0     0    0    0 S    0  0.0   0:00.06 kworker/1:1                                                                                                                      (B[m[39;49m
+(B[m   34 root      20   0     0    0    0 S    0  0.0   0:00.15 kworker/2:1                                                                                                                      (B[m[39;49m
+(B[m   35 root      20   0     0    0    0 S    0  0.0   0:00.06 kworker/3:1                                                                                                                      (B[m[39;49m
+(B[m   36 root      20   0     0    0    0 S    0  0.0   0:00.00 khungtaskd                                                                                                                       (B[m[39;49m
+(B[m   37 root      20   0     0    0    0 S    0  0.0   0:00.00 kswapd0                                                                                                                          (B[m[39;49m
+(B[m   38 root      25   5     0    0    0 S    0  0.0   0:00.00 ksmd                                                                                                                             (B[m[39;49m
+(B[m   39 root      39  19     0    0    0 S    0  0.0   0:00.00 khugepaged                                                                                                                       (B[m[39;49m
+(B[m   40 root      20   0     0    0    0 S    0  0.0   0:00.00 fsnotify_mark                                                                                                                    (B[m[39;49m
+(B[m   41 root      20   0     0    0    0 S    0  0.0   0:00.00 ecryptfs-kthrea                                                                                                                  (B[m[39;49m
+(B[m   42 root       0 -20     0    0    0 S    0  0.0   0:00.00 crypto                                                                                                                           (B[m[39;49m
+(B[m   50 root       0 -20     0    0    0 S    0  0.0   0:00.00 kthrotld                                                                                                                         (B[m[39;49m
+(B[m   51 root      20   0     0    0    0 S    0  0.0   0:00.00 scsi_eh_0                                                                                                                        (B[m[39;49m
+(B[m   52 root      20   0     0    0    0 S    0  0.0   0:00.03 scsi_eh_1                                                                                                                        (B[m[39;49m
+(B[m   73 root       0 -20     0    0    0 S    0  0.0   0:00.00 devfreq_wq                                                                                                                       (B[m[39;49m
+(B[m   74 root      20   0     0    0    0 S    0  0.0   0:00.00 kworker/3:2                                                                                                                      (B[m[39;49m
+(B[m  115 root      20   0     0    0    0 S    0  0.0   0:00.00 kworker/2:2                                                                                                                      (B[m[39;49m
+(B[m  180 root       0 -20     0    0    0 S    0  0.0   0:00.00 mpt_poll_0                                                                                                                       (B[m[39;49m
+(B[m  189 root       0 -20     0    0    0 S    0  0.0   0:00.00 mpt/0                                                                                                                            (B[m[39;49m[6;1H[K[55;1H[?12l[?25h
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ls et[K[K.etc[K[K[K[K/etc/logstash
+[0m[01;34magent[0m  [01;34mfiles[0m
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ls /tmp
+[0m[01;34mhsperfdata_root[0m
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ls /tmpetc/logstashtop[Kpull-updates [2Psudo rebootgrep /home/logadmin/.puppet/modulesp[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10Ppuppet config print modulepath
+/home/logadmin/.puppet/modules:/usr/share/puppet/modules
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ puppet config print modulepathls /tmp[Ketc/logstashtmp[K
+[0m[01;34mhsperfdata_root[0m
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ sevice --lsit all
+No command 'sevice' found, did you mean:
+ Command 'service' from package 'sysvinit-utils' (main)
+sevice: command not found
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ sevice --lsit all[1P[1P[1@i[1@s
+No command 'sevice' found, did you mean:
+ Command 'service' from package 'sysvinit-utils' (main)
+sevice: command not found
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ sevice --list all[K[K[K[K[C[1@r
+--list: unrecognized service
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ service --list all
+--list: unrecognized service
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ chkconfig --list
+The program 'chkconfig' is currently not installed.  You can install it by typing:
+sudo apt-get install chkconfig
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ps -al[1PlAl
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S     0     1     0  0  80   0 -  6081 poll_s ?        00:00:01 init
+1 S     0     2     0  0  80   0 -     0 kthrea ?        00:00:00 kthreadd
+1 S     0     3     2  0  80   0 -     0 run_ks ?        00:00:00 ksoftirqd/0
+5 S     0     5     2  0  80   0 -     0 worker ?        00:00:00 kworker/u:0
+1 S     0     6     2  0 -40   - -     0 cpu_st ?        00:00:00 migration/0
+5 S     0     7     2  0 -40   - -     0 watchd ?        00:00:00 watchdog/0
+1 S     0     8     2  0 -40   - -     0 cpu_st ?        00:00:00 migration/1
+1 S     0    10     2  0  80   0 -     0 run_ks ?        00:00:00 ksoftirqd/1
+1 R     0    11     2  0  80   0 -     0 worker ?        00:00:00 kworker/0:1
+5 S     0    12     2  0 -40   - -     0 watchd ?        00:00:00 watchdog/1
+1 S     0    13     2  0 -40   - -     0 cpu_st ?        00:00:00 migration/2
+1 S     0    15     2  0  80   0 -     0 run_ks ?        00:00:00 ksoftirqd/2
+5 S     0    16     2  0 -40   - -     0 watchd ?        00:00:00 watchdog/2
+1 S     0    17     2  0 -40   - -     0 cpu_st ?        00:00:00 migration/3
+1 S     0    19     2  0  80   0 -     0 run_ks ?        00:00:00 ksoftirqd/3
+5 S     0    20     2  0 -40   - -     0 watchd ?        00:00:00 watchdog/3
+1 S     0    21     2  0  60 -20 -     0 rescue ?        00:00:00 cpuset
+1 S     0    22     2  0  60 -20 -     0 rescue ?        00:00:00 khelper
+5 S     0    23     2  0  80   0 -     0 devtmp ?        00:00:00 kdevtmpfs
+1 S     0    24     2  0  60 -20 -     0 rescue ?        00:00:00 netns
+1 S     0    25     2  0  80   0 -     0 worker ?        00:00:00 kworker/u:1
+1 S     0    26     2  0  80   0 -     0 bdi_sy ?        00:00:00 sync_supers
+1 S     0    27     2  0  80   0 -     0 bdi_fo ?        00:00:00 bdi-default
+1 S     0    28     2  0  60 -20 -     0 rescue ?        00:00:00 kintegrityd
+1 S     0    29     2  0  60 -20 -     0 rescue ?        00:00:00 kblockd
+1 S     0    30     2  0  60 -20 -     0 rescue ?        00:00:00 ata_sff
+1 S     0    31     2  0  80   0 -     0 hub_th ?        00:00:00 khubd
+1 S     0    32     2  0  60 -20 -     0 rescue ?        00:00:00 md
+1 S     0    33     2  0  80   0 -     0 worker ?        00:00:00 kworker/1:1
+1 S     0    34     2  0  80   0 -     0 worker ?        00:00:00 kworker/2:1
+1 S     0    35     2  0  80   0 -     0 worker ?        00:00:00 kworker/3:1
+1 S     0    36     2  0  80   0 -     0 watchd ?        00:00:00 khungtaskd
+1 S     0    37     2  0  80   0 -     0 kswapd ?        00:00:00 kswapd0
+1 S     0    38     2  0  85   5 -     0 ksm_sc ?        00:00:00 ksmd
+1 S     0    39     2  0  99  19 -     0 khugep ?        00:00:00 khugepaged
+1 S     0    40     2  0  80   0 -     0 fsnoti ?        00:00:00 fsnotify_mark
+1 S     0    41     2  0  80   0 -     0 ecrypt ?        00:00:00 ecryptfs-kthrea
+1 S     0    42     2  0  60 -20 -     0 rescue ?        00:00:00 crypto
+1 S     0    50     2  0  60 -20 -     0 rescue ?        00:00:00 kthrotld
+1 S     0    51     2  0  80   0 -     0 scsi_e ?        00:00:00 scsi_eh_0
+1 S     0    52     2  0  80   0 -     0 scsi_e ?        00:00:00 scsi_eh_1
+1 S     0    73     2  0  60 -20 -     0 rescue ?        00:00:00 devfreq_wq
+1 S     0    74     2  0  80   0 -     0 worker ?        00:00:00 kworker/3:2
+1 S     0   115     2  0  80   0 -     0 worker ?        00:00:00 kworker/2:2
+1 S     0   180     2  0  60 -20 -     0 rescue ?        00:00:00 mpt_poll_0
+1 S     0   189     2  0  60 -20 -     0 rescue ?        00:00:00 mpt/0
+1 S     0   218     2  0  80   0 -     0 scsi_e ?        00:00:00 scsi_eh_2
+1 S     0   229     2  0  60 -20 -     0 rescue ?        00:00:00 kdmflush
+1 S     0   241     2  0  60 -20 -     0 rescue ?        00:00:00 kdmflush
+1 S     0   251     2  0  80   0 -     0 kjourn ?        00:00:00 jbd2/dm-0-8
+1 S     0   252     2  0  60 -20 -     0 rescue ?        00:00:00 ext4-dio-unwrit
+1 S     0   339     1  0  80   0 -  4339 poll_s ?        00:00:00 upstart-udev-br
+5 S     0   343     1  0  80   0 -  5396 ep_pol ?        00:00:00 udevd
+5 S     0   414   343  0  80   0 -  5395 ep_pol ?        00:00:00 udevd
+5 S     0   415   343  0  80   0 -  5395 ep_pol ?        00:00:00 udevd
+1 S     0   442     2  0  80   0 -     0 worker ?        00:00:00 kworker/1:2
+1 S     0   447     2  0  80   0 -     0 worker ?        00:00:00 kworker/0:2
+1 S     0   462     2  0  60 -20 -     0 rescue ?        00:00:00 kpsmoused
+5 S   102   555     1  0  80   0 -  5983 poll_s ?        00:00:00 dbus-daemon
+5 S   101   622     1  0  80   0 - 62366 poll_s ?        00:00:00 rsyslogd
+4 S     0   668     1  0  80   0 - 12487 poll_s ?        00:00:00 sshd
+1 S     0   709     1  0  80   0 -  3795 poll_s ?        00:00:00 upstart-socket-
+4 S     0   840     1  0  80   0 -  3944 n_tty_ tty4     00:00:00 getty
+4 S     0   854     1  0  80   0 -  3944 n_tty_ tty5     00:00:00 getty
+4 S     0   865     1  0  80   0 -  3944 n_tty_ tty2     00:00:00 getty
+4 S     0   868     1  0  80   0 -  3944 n_tty_ tty3     00:00:00 getty
+4 S     0   875     1  0  80   0 -  3944 n_tty_ tty6     00:00:00 getty
+1 S     0   890     1  0  80   0 -  1080 poll_s ?        00:00:00 acpid
+1 S     0   894     1  0  80   0 -  4776 hrtime ?        00:00:00 cron
+1 S     1   895     1  0  80   0 -  4225 hrtime ?        00:00:00 atd
+5 S     0   897     1  0  80   0 -  3993 hrtime ?        00:00:00 irqbalance
+1 S   103   910     1  0  80   0 - 46892 poll_s ?        00:00:00 whoopsie
+4 S     0   970     1  0  80   0 -  3944 n_tty_ tty1     00:00:00 getty
+1 S     0   991     2  0  80   0 -     0 bdi_wr ?        00:00:00 flush-252:0
+4 S     0   992   668  0  80   0 - 20469 poll_s ?        00:00:00 sshd
+4 S     0   996     1  0  80   0 - 522907 poll_s ?       00:00:00 console-kit-dae
+4 S     0  1063     1  0  80   0 - 46645 poll_s ?        00:00:00 polkitd
+5 R  1000  1215   992  0  80   0 - 20469 poll_s ?        00:00:00 sshd
+0 S  1000  1216  1215  0  80   0 -  6869 wait   pts/0    00:00:02 bash
+1 S     0  2859     2  0  80   0 -     0 worker ?        00:00:00 kworker/1:0
+0 S     0  2899     1  4  80   0 - 488499 futex_ ?       00:00:16 java
+0 T  1000  3041  1216  0  80   0 -  3434 signal pts/0    00:00:00 less
+1 S  1000  3042  1216  0  80   0 -  6869 wait   pts/0    00:00:00 bash
+0 S  1000  3053  3042  0  80   0 -  4414 n_tty_ pts/0    00:00:00 script
+1 S  1000  3054  3053  0  80   0 -  4415 n_tty_ pts/0    00:00:00 script
+0 S  1000  3055  3054  0  80   0 -  5893 wait   pts/1    00:00:00 bash
+0 R  1000  3426  3055  0  80   0 -  2430 -      pts/1    00:00:00 ps
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ netstat -l
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 *:ssh                   *:*                     LISTEN     
+tcp6       0      0 [::]:ssh                [::]:*                  LISTEN     
+tcp6       0      0 [::]:3366               [::]:*                  LISTEN     
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  2      [ ACC ]     STREAM     LISTENING     8210     @/com/ubuntu/upstart
+unix  2      [ ACC ]     SEQPACKET  LISTENING     1410     /run/udev/control
+unix  2      [ ACC ]     STREAM     LISTENING     9929     /var/run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     1514     /var/run/dbus/system_bus_socket
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ netstat -l[Kaon
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       Timer
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      off (0.00/0/0)
+tcp        0    232 192.168.3.96:22         192.168.6.101:2147      ESTABLISHED on (0.74/0/0)
+tcp6       0      0 :::22                   :::*                    LISTEN      off (0.00/0/0)
+tcp6       0      0 :::3366                 :::*                    LISTEN      off (0.00/0/0)
+Active UNIX domain sockets (servers and established)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  5      [ ]         DGRAM                    8480     /dev/log
+unix  2      [ ACC ]     STREAM     LISTENING     8210     @/com/ubuntu/upstart
+unix  2      [ ACC ]     SEQPACKET  LISTENING     1410     /run/udev/control
+unix  2      [ ACC ]     STREAM     LISTENING     9929     /var/run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     1514     /var/run/dbus/system_bus_socket
+unix  2      [ ]         STREAM     CONNECTED     25990    
+unix  2      [ ]         STREAM     CONNECTED     25345    
+unix  3      [ ]         STREAM     CONNECTED     10050    
+unix  3      [ ]         STREAM     CONNECTED     10049    
+unix  3      [ ]         STREAM     CONNECTED     7725     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8636     
+unix  3      [ ]         STREAM     CONNECTED     7721     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9973     
+unix  3      [ ]         STREAM     CONNECTED     7718     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8627     
+unix  2      [ ]         DGRAM                    9969     
+unix  3      [ ]         STREAM     CONNECTED     9967     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8625     
+unix  2      [ ]         DGRAM                    8624     
+unix  3      [ ]         STREAM     CONNECTED     9946     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8594     
+unix  2      [ ]         DGRAM                    9928     
+unix  3      [ ]         STREAM     CONNECTED     9847     @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     9845     
+unix  3      [ ]         STREAM     CONNECTED     9259     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9258     
+unix  3      [ ]         STREAM     CONNECTED     9235     
+unix  3      [ ]         STREAM     CONNECTED     9234     
+unix  3      [ ]         DGRAM                    7086     
+unix  3      [ ]         DGRAM                    7085     
+unix  3      [ ]         STREAM     CONNECTED     7424     @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     1400     
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ netstat -aon[K[K
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 *:ssh                   *:*                     LISTEN     
+tcp        0    232 log-01.datacentre.e:ssh 192.168.6.101:2147      ESTABLISHED
+tcp6       0      0 [::]:ssh                [::]:*                  LISTEN     
+tcp6       0      0 [::]:3366               [::]:*                  LISTEN     
+Active UNIX domain sockets (servers and established)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  5      [ ]         DGRAM                    8480     /dev/log
+unix  2      [ ACC ]     STREAM     LISTENING     8210     @/com/ubuntu/upstart
+unix  2      [ ACC ]     SEQPACKET  LISTENING     1410     /run/udev/control
+unix  2      [ ACC ]     STREAM     LISTENING     9929     /var/run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     1514     /var/run/dbus/system_bus_socket
+unix  2      [ ]         STREAM     CONNECTED     25990    
+unix  2      [ ]         STREAM     CONNECTED     25345    
+unix  3      [ ]         STREAM     CONNECTED     10050    
+unix  3      [ ]         STREAM     CONNECTED     10049    
+unix  3      [ ]         STREAM     CONNECTED     7725     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8636     
+unix  3      [ ]         STREAM     CONNECTED     7721     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9973     
+unix  3      [ ]         STREAM     CONNECTED     7718     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8627     
+unix  2      [ ]         DGRAM                    9969     
+unix  3      [ ]         STREAM     CONNECTED     9967     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8625     
+unix  2      [ ]         DGRAM                    8624     
+unix  3      [ ]         STREAM     CONNECTED     9946     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8594     
+unix  2      [ ]         DGRAM                    9928     
+unix  3      [ ]         STREAM     CONNECTED     9847     @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     9845     
+unix  3      [ ]         STREAM     CONNECTED     9259     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9258     
+unix  3      [ ]         STREAM     CONNECTED     9235     
+unix  3      [ ]         STREAM     CONNECTED     9234     
+unix  3      [ ]         DGRAM                    7086     
+unix  3      [ ]         DGRAM                    7085     
+unix  3      [ ]         STREAM     CONNECTED     7424     @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     1400     
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ netstat -a[Ko
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       Timer
+tcp        0    232 log-01.datacentre.e:ssh 192.168.6.101:2147      ESTABLISHED on (0.48/0/0)
+Active UNIX domain sockets (w/o servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  5      [ ]         DGRAM                    8480     /dev/log
+unix  2      [ ]         STREAM     CONNECTED     25990    
+unix  2      [ ]         STREAM     CONNECTED     25345    
+unix  3      [ ]         STREAM     CONNECTED     10050    
+unix  3      [ ]         STREAM     CONNECTED     10049    
+unix  3      [ ]         STREAM     CONNECTED     7725     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8636     
+unix  3      [ ]         STREAM     CONNECTED     7721     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9973     
+unix  3      [ ]         STREAM     CONNECTED     7718     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8627     
+unix  2      [ ]         DGRAM                    9969     
+unix  3      [ ]         STREAM     CONNECTED     9967     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8625     
+unix  2      [ ]         DGRAM                    8624     
+unix  3      [ ]         STREAM     CONNECTED     9946     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8594     
+unix  2      [ ]         DGRAM                    9928     
+unix  3      [ ]         STREAM     CONNECTED     9847     @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     9845     
+unix  3      [ ]         STREAM     CONNECTED     9259     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9258     
+unix  3      [ ]         STREAM     CONNECTED     9235     
+unix  3      [ ]         STREAM     CONNECTED     9234     
+unix  3      [ ]         DGRAM                    7086     
+unix  3      [ ]         DGRAM                    7085     
+unix  3      [ ]         STREAM     CONNECTED     7424     @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     1400     
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ netstat -o[Kn
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0    216 192.168.3.96:22         192.168.6.101:2147      ESTABLISHED
+Active UNIX domain sockets (w/o servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  5      [ ]         DGRAM                    8480     /dev/log
+unix  2      [ ]         STREAM     CONNECTED     25990    
+unix  2      [ ]         STREAM     CONNECTED     25345    
+unix  3      [ ]         STREAM     CONNECTED     10050    
+unix  3      [ ]         STREAM     CONNECTED     10049    
+unix  3      [ ]         STREAM     CONNECTED     7725     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8636     
+unix  3      [ ]         STREAM     CONNECTED     7721     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9973     
+unix  3      [ ]         STREAM     CONNECTED     7718     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8627     
+unix  2      [ ]         DGRAM                    9969     
+unix  3      [ ]         STREAM     CONNECTED     9967     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8625     
+unix  2      [ ]         DGRAM                    8624     
+unix  3      [ ]         STREAM     CONNECTED     9946     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8594     
+unix  2      [ ]         DGRAM                    9928     
+unix  3      [ ]         STREAM     CONNECTED     9847     @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     9845     
+unix  3      [ ]         STREAM     CONNECTED     9259     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9258     
+unix  3      [ ]         STREAM     CONNECTED     9235     
+unix  3      [ ]         STREAM     CONNECTED     9234     
+unix  3      [ ]         DGRAM                    7086     
+unix  3      [ ]         DGRAM                    7085     
+unix  3      [ ]         STREAM     CONNECTED     7424     @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     1400     
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ netstat -n[Kb
+netstat: invalid option -- 'b'
+usage: netstat [-vWeenNcCF] [<Af>] -r         netstat {-V|--version|-h|--help}
+       netstat [-vWnNcaeol] [<Socket> ...]
+       netstat { [-vWeenNac] -i | [-cWnNe] -M | -s }
+
+        -r, --route              display routing table
+        -i, --interfaces         display interface table
+        -g, --groups             display multicast group memberships
+        -s, --statistics         display networking statistics (like SNMP)
+        -M, --masquerade         display masqueraded connections
+
+        -v, --verbose            be verbose
+        -W, --wide               don't truncate IP addresses
+        -n, --numeric            don't resolve names
+        --numeric-hosts          don't resolve host names
+        --numeric-ports          don't resolve port names
+        --numeric-users          don't resolve user names
+        -N, --symbolic           resolve hardware names
+        -e, --extend             display other/more information
+        -p, --programs           display PID/Program name for sockets
+        -c, --continuous         continuous listing
+
+        -l, --listening          display listening server sockets
+        -a, --all, --listening   display all sockets (default: connected)
+        -o, --timers             display timers
+        -F, --fib                display Forwarding Information Base (default)
+        -C, --cache              display routing cache instead of FIB
+
+  <Socket>={-t|--tcp} {-u|--udp} {-w|--raw} {-x|--unix} --ax25 --ipx --netrom
+  <AF>=Use '-6|-4' or '-A <af>' or '--<af>'; default: inet
+  List of possible address families (which support routing):
+    inet (DARPA Internet) inet6 (IPv6) ax25 (AMPR AX.25) 
+    netrom (AMPR NET/ROM) ipx (Novell IPX) ddp (Appletalk DDP) 
+    x25 (CCITT X.25) 
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ netstat -bp
+netstat: invalid option -- 'b'
+usage: netstat [-vWeenNcCF] [<Af>] -r         netstat {-V|--version|-h|--help}
+       netstat [-vWnNcaeol] [<Socket> ...]
+       netstat { [-vWeenNac] -i | [-cWnNe] -M | -s }
+
+        -r, --route              display routing table
+        -i, --interfaces         display interface table
+        -g, --groups             display multicast group memberships
+        -s, --statistics         display networking statistics (like SNMP)
+        -M, --masquerade         display masqueraded connections
+
+        -v, --verbose            be verbose
+        -W, --wide               don't truncate IP addresses
+        -n, --numeric            don't resolve names
+        --numeric-hosts          don't resolve host names
+        --numeric-ports          don't resolve port names
+        --numeric-users          don't resolve user names
+        -N, --symbolic           resolve hardware names
+        -e, --extend             display other/more information
+        -p, --programs           display PID/Program name for sockets
+        -c, --continuous         continuous listing
+
+        -l, --listening          display listening server sockets
+        -a, --all, --listening   display all sockets (default: connected)
+        -o, --timers             display timers
+        -F, --fib                display Forwarding Information Base (default)
+        -C, --cache              display routing cache instead of FIB
+
+  <Socket>={-t|--tcp} {-u|--udp} {-w|--raw} {-x|--unix} --ax25 --ipx --netrom
+  <AF>=Use '-6|-4' or '-A <af>' or '--<af>'; default: inet
+  List of possible address families (which support routing):
+    inet (DARPA Internet) inet6 (IPv6) ax25 (AMPR AX.25) 
+    netrom (AMPR NET/ROM) ipx (Novell IPX) ddp (Appletalk DDP) 
+    x25 (CCITT X.25) 
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ netstat -bp[Knetstat -bp[1Pp
+(No info could be read for "-p": geteuid()=1000 but you should be root.)
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0    312 log-01.datacentre.e:ssh 192.168.6.101:2147      ESTABLISHED -               
+Active UNIX domain sockets (w/o servers)
+Proto RefCnt Flags       Type       State         I-Node   PID/Program name    Path
+unix  5      [ ]         DGRAM                    8480     -                   /dev/log
+unix  2      [ ]         STREAM     CONNECTED     25990    -                   
+unix  2      [ ]         STREAM     CONNECTED     25345    -                   
+unix  3      [ ]         STREAM     CONNECTED     10050    -                   
+unix  3      [ ]         STREAM     CONNECTED     10049    -                   
+unix  3      [ ]         STREAM     CONNECTED     7725     -                   /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8636     -                   
+unix  3      [ ]         STREAM     CONNECTED     7721     -                   /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9973     -                   
+unix  3      [ ]         STREAM     CONNECTED     7718     -                   /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8627     -                   
+unix  2      [ ]         DGRAM                    9969     -                   
+unix  3      [ ]         STREAM     CONNECTED     9967     -                   /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8625     -                   
+unix  2      [ ]         DGRAM                    8624     -                   
+unix  3      [ ]         STREAM     CONNECTED     9946     -                   /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8594     -                   
+unix  2      [ ]         DGRAM                    9928     -                   
+unix  3      [ ]         STREAM     CONNECTED     9847     -                   @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     9845     -                   
+unix  3      [ ]         STREAM     CONNECTED     9259     -                   /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9258     -                   
+unix  3      [ ]         STREAM     CONNECTED     9235     -                   
+unix  3      [ ]         STREAM     CONNECTED     9234     -                   
+unix  3      [ ]         DGRAM                    7086     -                   
+unix  3      [ ]         DGRAM                    7085     -                   
+unix  3      [ ]         STREAM     CONNECTED     7424     -                   @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     1400     -                   
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ netstat -pa
+(No info could be read for "-p": geteuid()=1000 but you should be root.)
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 *:ssh                   *:*                     LISTEN      -               
+tcp        0    328 log-01.datacentre.e:ssh 192.168.6.101:2147      ESTABLISHED -               
+tcp6       0      0 [::]:ssh                [::]:*                  LISTEN      -               
+tcp6       0      0 [::]:3366               [::]:*                  LISTEN      -               
+Active UNIX domain sockets (servers and established)
+Proto RefCnt Flags       Type       State         I-Node   PID/Program name    Path
+unix  5      [ ]         DGRAM                    8480     -                   /dev/log
+unix  2      [ ACC ]     STREAM     LISTENING     8210     -                   @/com/ubuntu/upstart
+unix  2      [ ACC ]     SEQPACKET  LISTENING     1410     -                   /run/udev/control
+unix  2      [ ACC ]     STREAM     LISTENING     9929     -                   /var/run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     1514     -                   /var/run/dbus/system_bus_socket
+unix  2      [ ]         STREAM     CONNECTED     25990    -                   
+unix  2      [ ]         STREAM     CONNECTED     25345    -                   
+unix  3      [ ]         STREAM     CONNECTED     10050    -                   
+unix  3      [ ]         STREAM     CONNECTED     10049    -                   
+unix  3      [ ]         STREAM     CONNECTED     7725     -                   /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8636     -                   
+unix  3      [ ]         STREAM     CONNECTED     7721     -                   /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9973     -                   
+unix  3      [ ]         STREAM     CONNECTED     7718     -                   /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8627     -                   
+unix  2      [ ]         DGRAM                    9969     -                   
+unix  3      [ ]         STREAM     CONNECTED     9967     -                   /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8625     -                   
+unix  2      [ ]         DGRAM                    8624     -                   
+unix  3      [ ]         STREAM     CONNECTED     9946     -                   /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8594     -                   
+unix  2      [ ]         DGRAM                    9928     -                   
+unix  3      [ ]         STREAM     CONNECTED     9847     -                   @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     9845     -                   
+unix  3      [ ]         STREAM     CONNECTED     9259     -                   /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9258     -                   
+unix  3      [ ]         STREAM     CONNECTED     9235     -                   
+unix  3      [ ]         STREAM     CONNECTED     9234     -                   
+unix  3      [ ]         DGRAM                    7086     -                   
+unix  3      [ ]         DGRAM                    7085     -                   
+unix  3      [ ]         STREAM     CONNECTED     7424     -                   @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     1400     -                   
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ netstat -pa[K[Kz
+netstat: invalid option -- 'z'
+usage: netstat [-vWeenNcCF] [<Af>] -r         netstat {-V|--version|-h|--help}
+       netstat [-vWnNcaeol] [<Socket> ...]
+       netstat { [-vWeenNac] -i | [-cWnNe] -M | -s }
+
+        -r, --route              display routing table
+        -i, --interfaces         display interface table
+        -g, --groups             display multicast group memberships
+        -s, --statistics         display networking statistics (like SNMP)
+        -M, --masquerade         display masqueraded connections
+
+        -v, --verbose            be verbose
+        -W, --wide               don't truncate IP addresses
+        -n, --numeric            don't resolve names
+        --numeric-hosts          don't resolve host names
+        --numeric-ports          don't resolve port names
+        --numeric-users          don't resolve user names
+        -N, --symbolic           resolve hardware names
+        -e, --extend             display other/more information
+        -p, --programs           display PID/Program name for sockets
+        -c, --continuous         continuous listing
+
+        -l, --listening          display listening server sockets
+        -a, --all, --listening   display all sockets (default: connected)
+        -o, --timers             display timers
+        -F, --fib                display Forwarding Information Base (default)
+        -C, --cache              display routing cache instead of FIB
+
+  <Socket>={-t|--tcp} {-u|--udp} {-w|--raw} {-x|--unix} --ax25 --ipx --netrom
+  <AF>=Use '-6|-4' or '-A <af>' or '--<af>'; default: inet
+  List of possible address families (which support routing):
+    inet (DARPA Internet) inet6 (IPv6) ax25 (AMPR AX.25) 
+    netrom (AMPR NET/ROM) ipx (Novell IPX) ddp (Appletalk DDP) 
+    x25 (CCITT X.25) 
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ netstat -z[Kpl
+(No info could be read for "-p": geteuid()=1000 but you should be root.)
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 *:ssh                   *:*                     LISTEN      -               
+tcp6       0      0 [::]:ssh                [::]:*                  LISTEN      -               
+tcp6       0      0 [::]:3366               [::]:*                  LISTEN      -               
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node   PID/Program name    Path
+unix  2      [ ACC ]     STREAM     LISTENING     8210     -                   @/com/ubuntu/upstart
+unix  2      [ ACC ]     SEQPACKET  LISTENING     1410     -                   /run/udev/control
+unix  2      [ ACC ]     STREAM     LISTENING     9929     -                   /var/run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     1514     -                   /var/run/dbus/system_bus_socket
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ps | a
+a: command not found
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ps | a[K[K[K-a
+  PID TTY          TIME CMD
+ 3041 pts/0    00:00:00 less
+ 3042 pts/0    00:00:00 bash
+ 3053 pts/0    00:00:00 script
+ 3054 pts/0    00:00:00 script
+ 3441 pts/1    00:00:00 ps
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ps -a[Kss
+Warning: bad ps syntax, perhaps a bogus '-'? See http://procps.sf.net/faq.html
+  UID   PID          PENDING          BLOCKED          IGNORED           CAUGHT STAT TTY        TIME COMMAND
+ 1000  1216 0000000000000000 0000000000010000 0000000000384004 000000004b813efb Ss   pts/0      0:02 -bash
+ 1000  3041 0000000000000000 0000000000000000 0000000000000004 0000000008000002 T    pts/0      0:00 less
+ 1000  3042 0000000000000000 0000000000010000 0000000000000004 0000000008010002 S+   pts/0      0:00 -bash
+ 1000  3053 0000000000000000 0000000000000000 0000000000000000 0000000008010000 S+   pts/0      0:00 script
+ 1000  3054 0000000000000000 0000000000000000 0000000000000000 0000000000010000 S+   pts/0      0:00 script
+ 1000  3055 0000000000000000 0000000000010000 0000000000384004 000000004b813efb Ss   pts/1      0:00 bash -i
+ 1000  3442 0000000000000000 0000000000000000 0000000000000000 0000000073d3fef9 R+   pts/1      0:00 ps -ss
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ps -ss[K
+Warning: bad ps syntax, perhaps a bogus '-'? See http://procps.sf.net/faq.html
+  UID   PID          PENDING          BLOCKED          IGNORED           CAUGHT STAT TTY        TIME COMMAND
+ 1000  1216 0000000000000000 0000000000010000 0000000000384004 000000004b813efb Ss   pts/0      0:02 -bash
+ 1000  3041 0000000000000000 0000000000000000 0000000000000004 0000000008000002 T    pts/0      0:00 less
+ 1000  3042 0000000000000000 0000000000010000 0000000000000004 0000000008010002 S+   pts/0      0:00 -bash
+ 1000  3053 0000000000000000 0000000000000000 0000000000000000 0000000008010000 S+   pts/0      0:00 script
+ 1000  3054 0000000000000000 0000000000000000 0000000000000000 0000000000010000 S+   pts/0      0:00 script
+ 1000  3055 0000000000000000 0000000000010000 0000000000384004 000000004b813efb Ss   pts/1      0:00 bash -i
+ 1000  3443 0000000000000000 0000000000000000 0000000000000000 0000000073d3fef9 R+   pts/1      0:00 ps -s
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ps -s[Kw
+  PID TTY          TIME CMD
+ 3055 pts/1    00:00:00 bash
+ 3444 pts/1    00:00:00 ps
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ps -w[Ke
+  PID TTY          TIME CMD
+    1 ?        00:00:01 init
+    2 ?        00:00:00 kthreadd
+    3 ?        00:00:00 ksoftirqd/0
+    5 ?        00:00:00 kworker/u:0
+    6 ?        00:00:00 migration/0
+    7 ?        00:00:00 watchdog/0
+    8 ?        00:00:00 migration/1
+   10 ?        00:00:00 ksoftirqd/1
+   11 ?        00:00:00 kworker/0:1
+   12 ?        00:00:00 watchdog/1
+   13 ?        00:00:00 migration/2
+   15 ?        00:00:00 ksoftirqd/2
+   16 ?        00:00:00 watchdog/2
+   17 ?        00:00:00 migration/3
+   19 ?        00:00:00 ksoftirqd/3
+   20 ?        00:00:00 watchdog/3
+   21 ?        00:00:00 cpuset
+   22 ?        00:00:00 khelper
+   23 ?        00:00:00 kdevtmpfs
+   24 ?        00:00:00 netns
+   25 ?        00:00:00 kworker/u:1
+   26 ?        00:00:00 sync_supers
+   27 ?        00:00:00 bdi-default
+   28 ?        00:00:00 kintegrityd
+   29 ?        00:00:00 kblockd
+   30 ?        00:00:00 ata_sff
+   31 ?        00:00:00 khubd
+   32 ?        00:00:00 md
+   33 ?        00:00:00 kworker/1:1
+   34 ?        00:00:00 kworker/2:1
+   35 ?        00:00:00 kworker/3:1
+   36 ?        00:00:00 khungtaskd
+   37 ?        00:00:00 kswapd0
+   38 ?        00:00:00 ksmd
+   39 ?        00:00:00 khugepaged
+   40 ?        00:00:00 fsnotify_mark
+   41 ?        00:00:00 ecryptfs-kthrea
+   42 ?        00:00:00 crypto
+   50 ?        00:00:00 kthrotld
+   51 ?        00:00:00 scsi_eh_0
+   52 ?        00:00:00 scsi_eh_1
+   73 ?        00:00:00 devfreq_wq
+   74 ?        00:00:00 kworker/3:2
+  115 ?        00:00:00 kworker/2:2
+  180 ?        00:00:00 mpt_poll_0
+  189 ?        00:00:00 mpt/0
+  218 ?        00:00:00 scsi_eh_2
+  229 ?        00:00:00 kdmflush
+  241 ?        00:00:00 kdmflush
+  251 ?        00:00:00 jbd2/dm-0-8
+  252 ?        00:00:00 ext4-dio-unwrit
+  339 ?        00:00:00 upstart-udev-br
+  343 ?        00:00:00 udevd
+  414 ?        00:00:00 udevd
+  415 ?        00:00:00 udevd
+  442 ?        00:00:00 kworker/1:2
+  447 ?        00:00:00 kworker/0:2
+  462 ?        00:00:00 kpsmoused
+  555 ?        00:00:00 dbus-daemon
+  622 ?        00:00:00 rsyslogd
+  668 ?        00:00:00 sshd
+  709 ?        00:00:00 upstart-socket-
+  840 tty4     00:00:00 getty
+  854 tty5     00:00:00 getty
+  865 tty2     00:00:00 getty
+  868 tty3     00:00:00 getty
+  875 tty6     00:00:00 getty
+  890 ?        00:00:00 acpid
+  894 ?        00:00:00 cron
+  895 ?        00:00:00 atd
+  897 ?        00:00:00 irqbalance
+  910 ?        00:00:00 whoopsie
+  970 tty1     00:00:00 getty
+  991 ?        00:00:00 flush-252:0
+  992 ?        00:00:00 sshd
+  996 ?        00:00:00 console-kit-dae
+ 1063 ?        00:00:00 polkitd
+ 1215 ?        00:00:00 sshd
+ 1216 pts/0    00:00:02 bash
+ 2859 ?        00:00:00 kworker/1:0
+ 2899 ?        00:00:16 java
+ 3041 pts/0    00:00:00 less
+ 3042 pts/0    00:00:00 bash
+ 3053 pts/0    00:00:00 script
+ 3054 pts/0    00:00:00 script
+ 3055 pts/1    00:00:00 bash
+ 3445 pts/1    00:00:00 ps
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ps -e[Kt
+Warning: bad ps syntax, perhaps a bogus '-'? See http://procps.sf.net/faq.html
+  PID TTY      STAT   TIME COMMAND
+ 3055 pts/1    Ss     0:00 bash -i
+ 3446 pts/1    R+     0:00 ps -t
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ps -t[Ky
+ERROR: Modifier -y without format -l makes no sense.
+********* simple selection *********  ********* selection by list *********
+-A all processes                      -C by command name
+-N negate selection                   -G by real group ID (supports names)
+-a all w/ tty except session leaders  -U by real user ID (supports names)
+-d all except session leaders         -g by session OR by effective group name
+-e all processes                      -p by process ID
+T  all processes on this terminal     -s processes in the sessions given
+a  all w/ tty, including other users  -t by tty
+g  OBSOLETE -- DO NOT USE             -u by effective user ID (supports names)
+r  only running processes             U  processes for specified users
+x  processes w/o controlling ttys     t  by tty
+*********** output format **********  *********** long options ***********
+-o,o user-defined  -f full            --Group --User --pid --cols --ppid
+-j,j job control   s  signal          --group --user --sid --rows --info
+-O,O preloaded -o  v  virtual memory  --cumulative --format --deselect
+-l,l long          u  user-oriented   --sort --tty --forest --version
+-F   extra full    X  registers       --heading --no-heading --context
+                    ********* misc options *********
+-V,V  show version      L  list format codes  f  ASCII art forest
+-m,m,-L,-T,H  threads   S  children in sum    -y change -l format
+-M,Z  security data     c  true command name  -c scheduling class
+-w,w  wide output       n  numeric WCHAN,UID  -H process hierarchy
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ps -y[Kr
+Warning: bad ps syntax, perhaps a bogus '-'? See http://procps.sf.net/faq.html
+  PID TTY      STAT   TIME COMMAND
+ 3448 pts/1    R+     0:00 ps -r
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ps -r[Ko
+ERROR: Format specification must follow -o.
+********* simple selection *********  ********* selection by list *********
+-A all processes                      -C by command name
+-N negate selection                   -G by real group ID (supports names)
+-a all w/ tty except session leaders  -U by real user ID (supports names)
+-d all except session leaders         -g by session OR by effective group name
+-e all processes                      -p by process ID
+T  all processes on this terminal     -s processes in the sessions given
+a  all w/ tty, including other users  -t by tty
+g  OBSOLETE -- DO NOT USE             -u by effective user ID (supports names)
+r  only running processes             U  processes for specified users
+x  processes w/o controlling ttys     t  by tty
+*********** output format **********  *********** long options ***********
+-o,o user-defined  -f full            --Group --User --pid --cols --ppid
+-j,j job control   s  signal          --group --user --sid --rows --info
+-O,O preloaded -o  v  virtual memory  --cumulative --format --deselect
+-l,l long          u  user-oriented   --sort --tty --forest --version
+-F   extra full    X  registers       --heading --no-heading --context
+                    ********* misc options *********
+-V,V  show version      L  list format codes  f  ASCII art forest
+-m,m,-L,-T,H  threads   S  children in sum    -y change -l format
+-M,Z  security data     c  true command name  -c scheduling class
+-w,w  wide output       n  numeric WCHAN,UID  -H process hierarchy
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ps -o[Ku
+Warning: bad ps syntax, perhaps a bogus '-'? See http://procps.sf.net/faq.html
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+logadmin  1216  0.0  0.1  27476  8804 pts/0    Ss   02:28   0:02 -bash
+logadmin  3041  0.0  0.0  13736  1020 pts/0    T    02:57   0:00 less
+logadmin  3042  0.0  0.0  27476  7696 pts/0    S+   02:57   0:00 -bash
+logadmin  3053  0.0  0.0  17656   884 pts/0    S+   02:57   0:00 script
+logadmin  3054  0.0  0.0  17660   400 pts/0    S+   02:57   0:00 script
+logadmin  3055  0.1  0.0  23572  4884 pts/1    Ss   02:57   0:00 bash -i
+logadmin  3450  0.0  0.0  18152  1264 pts/1    R+   03:03   0:00 ps -u
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ps -u logadmin
+  PID TTY          TIME CMD
+ 1215 ?        00:00:00 sshd
+ 1216 pts/0    00:00:02 bash
+ 3041 pts/0    00:00:00 less
+ 3042 pts/0    00:00:00 bash
+ 3053 pts/0    00:00:00 script
+ 3054 pts/0    00:00:00 script
+ 3055 pts/1    00:00:00 bash
+ 3451 pts/1    00:00:00 ps
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ps -u logadmin[K[K[K[K[K[K[K[Kroot
+  PID TTY          TIME CMD
+    1 ?        00:00:01 init
+    2 ?        00:00:00 kthreadd
+    3 ?        00:00:00 ksoftirqd/0
+    5 ?        00:00:00 kworker/u:0
+    6 ?        00:00:00 migration/0
+    7 ?        00:00:00 watchdog/0
+    8 ?        00:00:00 migration/1
+   10 ?        00:00:00 ksoftirqd/1
+   11 ?        00:00:00 kworker/0:1
+   12 ?        00:00:00 watchdog/1
+   13 ?        00:00:00 migration/2
+   15 ?        00:00:00 ksoftirqd/2
+   16 ?        00:00:00 watchdog/2
+   17 ?        00:00:00 migration/3
+   19 ?        00:00:00 ksoftirqd/3
+   20 ?        00:00:00 watchdog/3
+   21 ?        00:00:00 cpuset
+   22 ?        00:00:00 khelper
+   23 ?        00:00:00 kdevtmpfs
+   24 ?        00:00:00 netns
+   25 ?        00:00:00 kworker/u:1
+   26 ?        00:00:00 sync_supers
+   27 ?        00:00:00 bdi-default
+   28 ?        00:00:00 kintegrityd
+   29 ?        00:00:00 kblockd
+   30 ?        00:00:00 ata_sff
+   31 ?        00:00:00 khubd
+   32 ?        00:00:00 md
+   33 ?        00:00:00 kworker/1:1
+   34 ?        00:00:00 kworker/2:1
+   35 ?        00:00:00 kworker/3:1
+   36 ?        00:00:00 khungtaskd
+   37 ?        00:00:00 kswapd0
+   38 ?        00:00:00 ksmd
+   39 ?        00:00:00 khugepaged
+   40 ?        00:00:00 fsnotify_mark
+   41 ?        00:00:00 ecryptfs-kthrea
+   42 ?        00:00:00 crypto
+   50 ?        00:00:00 kthrotld
+   51 ?        00:00:00 scsi_eh_0
+   52 ?        00:00:00 scsi_eh_1
+   73 ?        00:00:00 devfreq_wq
+   74 ?        00:00:00 kworker/3:2
+  115 ?        00:00:00 kworker/2:2
+  180 ?        00:00:00 mpt_poll_0
+  189 ?        00:00:00 mpt/0
+  218 ?        00:00:00 scsi_eh_2
+  229 ?        00:00:00 kdmflush
+  241 ?        00:00:00 kdmflush
+  251 ?        00:00:00 jbd2/dm-0-8
+  252 ?        00:00:00 ext4-dio-unwrit
+  339 ?        00:00:00 upstart-udev-br
+  343 ?        00:00:00 udevd
+  414 ?        00:00:00 udevd
+  415 ?        00:00:00 udevd
+  442 ?        00:00:00 kworker/1:2
+  447 ?        00:00:00 kworker/0:2
+  462 ?        00:00:00 kpsmoused
+  668 ?        00:00:00 sshd
+  709 ?        00:00:00 upstart-socket-
+  840 tty4     00:00:00 getty
+  854 tty5     00:00:00 getty
+  865 tty2     00:00:00 getty
+  868 tty3     00:00:00 getty
+  875 tty6     00:00:00 getty
+  890 ?        00:00:00 acpid
+  894 ?        00:00:00 cron
+  897 ?        00:00:00 irqbalance
+  970 tty1     00:00:00 getty
+  991 ?        00:00:00 flush-252:0
+  992 ?        00:00:00 sshd
+  996 ?        00:00:00 console-kit-dae
+ 1063 ?        00:00:00 polkitd
+ 2859 ?        00:00:00 kworker/1:0
+ 2899 ?        00:00:16 java
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ nc 127.0.0.01[K[K1 3366
+wef
+wef
+wef
+we
+f
+wef
+wef
+wef
+^C
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ls /tmp
+[0m[01;34mhsperfdata_root[0m
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ cd /
+]0;logadmin@log-01: /logadmin@log-01:/$ sudo find 0[K-name .conf
+]0;logadmin@log-01: /logadmin@log-01:/$ sudo find -name .conf*.conf
+./usr/src/linux-headers-3.2.0-23-generic/include/config/tristate.conf
+./usr/src/linux-headers-3.2.0-23-generic/include/config/auto.conf
+./usr/share/popularity-contest/default.conf
+./usr/share/debconf/debconf.conf
+./usr/share/doc/rsync/examples/rsyncd.conf
+./usr/share/doc/mtools/examples/mtools.conf
+./usr/share/doc/procps/examples/sysctl.conf
+./usr/share/doc/apt/examples/apt.conf
+./usr/share/doc/memtest86+/examples/lilo.conf
+./usr/share/doc/puppet-common/examples/hiera/etc/puppet.conf
+./usr/share/doc/tmux/examples/vim-keys.conf
+./usr/share/doc/tmux/examples/screen-keys.conf
+./usr/share/doc/tmux/examples/t-williams.conf
+./usr/share/doc/tmux/examples/h-boetes.conf
+./usr/share/doc/tmux/examples/n-marriott.conf
+./usr/share/doc/adduser/examples/adduser.local.conf
+./usr/share/doc/adduser/examples/adduser.local.conf.examples/adduser.conf
+./usr/share/doc/sudo/examples/sample.syslog.conf
+./usr/share/doc/sudo/examples/sample.sudo.conf
+./usr/share/doc/wpasupplicant/examples/openCryptoki.conf
+./usr/share/doc/wpasupplicant/examples/wpa2-eap-ccmp.conf
+./usr/share/doc/wpasupplicant/examples/wep.conf
+./usr/share/doc/wpasupplicant/examples/ieee8021x.conf
+./usr/share/doc/wpasupplicant/examples/plaintext.conf
+./usr/share/doc/wpasupplicant/examples/wpa-roam.conf
+./usr/share/doc/wpasupplicant/examples/wpa-psk-tkip.conf
+./usr/share/doc/apt-utils/examples/apt-ftparchive.conf
+./usr/share/doc/libcups2/examples/client.conf
+./usr/share/rsyslog/50-default.conf
+./usr/share/alsa/alsa.conf
+./usr/share/alsa/ucm/SDP4430/SDP4430.conf
+./usr/share/alsa/ucm/Panda/Panda.conf
+./usr/share/alsa/ucm/DAISY-I2S/DAISY-I2S.conf
+./usr/share/alsa/ucm/DAISY-I2S/HiFi.conf
+./usr/share/alsa/ucm/PandaES/PandaES.conf
+./usr/share/alsa/ucm/tegraalc5632/tegraalc5632.conf
+./usr/share/alsa/pcm/front.conf
+./usr/share/alsa/pcm/default.conf
+./usr/share/alsa/pcm/center_lfe.conf
+./usr/share/alsa/pcm/surround71.conf
+./usr/share/alsa/pcm/surround51.conf
+./usr/share/alsa/pcm/dpl.conf
+./usr/share/alsa/pcm/dsnoop.conf
+./usr/share/alsa/pcm/iec958.conf
+./usr/share/alsa/pcm/surround41.conf
+./usr/share/alsa/pcm/rear.conf
+./usr/share/alsa/pcm/side.conf
+./usr/share/alsa/pcm/dmix.conf
+./usr/share/alsa/pcm/surround40.conf
+./usr/share/alsa/pcm/surround50.conf
+./usr/share/alsa/pcm/hdmi.conf
+./usr/share/alsa/pcm/modem.conf
+./usr/share/alsa/cards/FM801.conf
+./usr/share/alsa/cards/SI7018.conf
+./usr/share/alsa/cards/AU8820.conf
+./usr/share/alsa/cards/VIA8233.conf
+./usr/share/alsa/cards/AU8830.conf
+./usr/share/alsa/cards/EMU10K1.conf
+./usr/share/alsa/cards/CMI8788.conf
+./usr/share/alsa/cards/RME9636.conf
+./usr/share/alsa/cards/USB-Audio.conf
+./usr/share/alsa/cards/VIA8237.conf
+./usr/share/alsa/cards/ATIIXP.conf
+./usr/share/alsa/cards/TRID4DWAVENX.conf
+./usr/share/alsa/cards/CA0106.conf
+./usr/share/alsa/cards/VXPocket440.conf
+./usr/share/alsa/cards/ENS1371.conf
+./usr/share/alsa/cards/FireWave.conf
+./usr/share/alsa/cards/VIA686A.conf
+./usr/share/alsa/cards/CMI8338-SWIEC.conf
+./usr/share/alsa/cards/Maestro3.conf
+./usr/share/alsa/cards/AACI.conf
+./usr/share/alsa/cards/ICH.conf
+./usr/share/alsa/cards/Audigy2.conf
+./usr/share/alsa/cards/CMI8738-MC8.conf
+./usr/share/alsa/cards/CMI8338.conf
+./usr/share/alsa/cards/Aureon51.conf
+./usr/share/alsa/cards/ICH4.conf
+./usr/share/alsa/cards/ES1968.conf
+./usr/share/alsa/cards/VIA8233A.conf
+./usr/share/alsa/cards/HDA-Intel.conf
+./usr/share/alsa/cards/tegra-alc5632.conf
+./usr/share/alsa/cards/VX222.conf
+./usr/share/alsa/cards/ATIIXP-SPDMA.conf
+./usr/share/alsa/cards/ICE1724.conf
+./usr/share/alsa/cards/RME9652.conf
+./usr/share/alsa/cards/NFORCE.conf
+./usr/share/alsa/cards/PMacToonie.conf
+./usr/share/alsa/cards/Audigy.conf
+./usr/share/alsa/cards/ATIIXP-MODEM.conf
+./usr/share/alsa/cards/EMU10K1X.conf
+./usr/share/alsa/cards/ENS1370.conf
+./usr/share/alsa/cards/ICH-MODEM.conf
+./usr/share/alsa/cards/PS3.conf
+./usr/share/alsa/cards/CMI8738-MC6.conf
+./usr/share/alsa/cards/SB-XFi.conf
+./usr/share/alsa/cards/aliases.conf
+./usr/share/alsa/cards/AU8810.conf
+./usr/share/alsa/cards/Aureon71.conf
+./usr/share/alsa/cards/GUS.conf
+./usr/share/alsa/cards/VXPocket.conf
+./usr/share/alsa/cards/PC-Speaker.conf
+./usr/share/alsa/cards/YMF744.conf
+./usr/share/alsa/cards/CS46xx.conf
+./usr/share/alsa/cards/PMac.conf
+./usr/share/alsa/cards/Echo_Echo3G.conf
+./usr/share/alsa/cards/ICE1712.conf
+./usr/share/alsa/cards/FWSpeakers.conf
+./usr/share/alsa/smixer.conf
+./usr/share/initramfs-tools/event-driven/upstart-jobs/mountall.conf
+./usr/share/base-files/nsswitch.conf
+./usr/share/adduser/adduser.conf
+./usr/share/puppet/ext/debian/fileserver.conf
+./usr/share/puppet/ext/debian/puppet.conf
+./usr/share/puppet/ext/rack/files/apache2.conf
+./usr/share/ufw/ufw.conf
+./usr/lib/ruby/vendor_ruby/puppet/util/libuser.conf
+./usr/lib/x86_64-linux-gnu/mesa/ld.so.conf
+./run/resolvconf/resolv.conf
+./var/lib/ucf/cache/:etc:rsyslog.d:50-default.conf
+./home/logadmin/puppet/modules/logstash/files/logstash.conf
+./etc/ld.so.conf
+./etc/gtk-2.0/im-multipress.conf
+./etc/dbus-1/system.conf
+./etc/dbus-1/session.conf
+./etc/dbus-1/system.d/org.freedesktop.Accounts.conf
+./etc/dbus-1/system.d/org.freedesktop.PolicyKit1.conf
+./etc/dbus-1/system.d/ConsoleKit.conf
+./etc/dbus-1/system.d/org.debian.AptXapianIndex.conf
+./etc/dbus-1/system.d/wpa_supplicant.conf
+./etc/dbus-1/system.d/Upstart.conf
+./etc/dbus-1/system.d/Mountall.Server.conf
+./etc/dbus-1/system.d/com.ubuntu.LanguageSelector.conf
+./etc/dbus-1/system.d/org.freedesktop.UDisks.conf
+./etc/updatedb.conf
+./etc/mke2fs.conf
+./etc/adduser.conf
+./etc/polkit-1/nullbackend.conf.d/50-nullbackend.conf
+./etc/polkit-1/localauthority.conf.d/51-ubuntu-admin.conf
+./etc/polkit-1/localauthority.conf.d/50-localauthority.conf
+./etc/gconf/2/evoldap.conf
+./etc/host.conf
+./etc/ucf.conf
+./etc/lvm/lvm.conf
+./etc/deluser.conf
+./etc/gai.conf
+./etc/ltrace.conf
+./etc/security/limits.conf
+./etc/security/access.conf
+./etc/security/time.conf
+./etc/security/group.conf
+./etc/security/namespace.conf
+./etc/security/pam_env.conf
+./etc/security/sepermit.conf
+./etc/ld.so.conf.d/libc.conf
+./etc/ld.so.conf.d/x86_64-linux-gnu_GL.conf
+./etc/ld.so.conf.d/x86_64-linux-gnu.conf
+./etc/resolv.conf
+./etc/sysctl.conf
+./etc/rsyslog.d/50-default.conf
+./etc/rsyslog.d/20-ufw.conf
+./etc/pulse/client.conf
+./etc/fuse.conf
+./etc/ca-certificates.conf
+./etc/modprobe.d/blacklist-framebuffer.conf
+./etc/modprobe.d/blacklist.conf
+./etc/modprobe.d/blacklist-firewire.conf
+./etc/modprobe.d/blacklist-ath_pci.conf
+./etc/modprobe.d/blacklist-watchdog.conf
+./etc/modprobe.d/blacklist-rare-network.conf
+./etc/insserv.conf
+./etc/debconf.conf
+./etc/fonts/fonts.conf
+./etc/fonts/conf.avail/10-sub-pixel-vbgr.conf
+./etc/fonts/conf.avail/10-autohint.conf
+./etc/fonts/conf.avail/69-language-selector-zh-hk.conf
+./etc/fonts/conf.avail/50-user.conf
+./etc/fonts/conf.avail/10-sub-pixel-vrgb.conf
+./etc/fonts/conf.avail/53-monospace-lcd-filter.conf
+./etc/fonts/conf.avail/11-lcd-filter-lcddefault.conf
+./etc/fonts/conf.avail/25-unhint-nonlatin.conf
+./etc/fonts/conf.avail/69-language-selector-ja-jp.conf
+./etc/fonts/conf.avail/65-khmer.conf
+./etc/fonts/conf.avail/70-yes-bitmaps.conf
+./etc/fonts/conf.avail/45-latin.conf
+./etc/fonts/conf.avail/10-sub-pixel-rgb.conf
+./etc/fonts/conf.avail/69-language-selector-zh-sg.conf
+./etc/fonts/conf.avail/65-nonlatin.conf
+./etc/fonts/conf.avail/80-delicious.conf
+./etc/fonts/conf.avail/70-force-bitmaps.conf
+./etc/fonts/conf.avail/30-urw-aliases.conf
+./etc/fonts/conf.avail/20-unhint-small-vera.conf
+./etc/fonts/conf.avail/10-hinting-full.conf
+./etc/fonts/conf.avail/69-language-selector-zh-mo.conf
+./etc/fonts/conf.avail/69-language-selector-zh-tw.conf
+./etc/fonts/conf.avail/30-metric-aliases.conf
+./etc/fonts/conf.avail/10-sub-pixel-bgr.conf
+./etc/fonts/conf.avail/65-fonts-persian.conf
+./etc/fonts/conf.avail/49-sansserif.conf
+./etc/fonts/conf.avail/70-no-bitmaps.conf
+./etc/fonts/conf.avail/10-antialias.conf
+./etc/fonts/conf.avail/90-synthetic.conf
+./etc/fonts/conf.avail/69-language-selector-zh-cn.conf
+./etc/fonts/conf.avail/30-cjk-aliases.conf
+./etc/fonts/conf.avail/10-unhinted.conf
+./etc/fonts/conf.avail/10-no-sub-pixel.conf
+./etc/fonts/conf.avail/69-unifont.conf
+./etc/fonts/conf.avail/10-hinting-medium.conf
+./etc/fonts/conf.avail/69-language-selector-ka-ge.conf
+./etc/fonts/conf.avail/99-language-selector-zh.conf
+./etc/fonts/conf.avail/20-fix-globaladvance.conf
+./etc/fonts/conf.avail/40-nonlatin.conf
+./etc/fonts/conf.avail/51-local.conf
+./etc/fonts/conf.avail/60-latin.conf
+./etc/fonts/conf.avail/10-hinting-slight.conf
+./etc/fonts/conf.avail/10-hinting.conf
+./etc/fonts/conf.d/50-user.conf
+./etc/fonts/conf.d/53-monospace-lcd-filter.conf
+./etc/fonts/conf.d/11-lcd-filter-lcddefault.conf
+./etc/fonts/conf.d/45-latin.conf
+./etc/fonts/conf.d/65-nonlatin.conf
+./etc/fonts/conf.d/80-delicious.conf
+./etc/fonts/conf.d/30-urw-aliases.conf
+./etc/fonts/conf.d/20-unhint-small-vera.conf
+./etc/fonts/conf.d/30-metric-aliases.conf
+./etc/fonts/conf.d/65-fonts-persian.conf
+./etc/fonts/conf.d/49-sansserif.conf
+./etc/fonts/conf.d/70-no-bitmaps.conf
+./etc/fonts/conf.d/10-antialias.conf
+./etc/fonts/conf.d/90-synthetic.conf
+./etc/fonts/conf.d/69-unifont.conf
+./etc/fonts/conf.d/20-fix-globaladvance.conf
+./etc/fonts/conf.d/40-nonlatin.conf
+./etc/fonts/conf.d/51-local.conf
+./etc/fonts/conf.d/60-latin.conf
+./etc/fonts/conf.d/10-hinting-slight.conf
+./etc/fonts/conf.d/10-hinting.conf
+./etc/initramfs-tools/update-initramfs.conf
+./etc/initramfs-tools/initramfs.conf
+./etc/pam.conf
+./etc/rsyslog.conf
+./etc/iscsi/iscsid.conf
+./etc/hdparm.conf
+./etc/popularity-contest.conf
+./etc/gtk-3.0/im-multipress.conf
+./etc/udev/udev.conf
+./etc/kernel-img.conf
+./etc/apparmor/subdomain.conf
+./etc/depmod.d/ubuntu.conf
+./etc/ldap/ldap.conf
+./etc/blkid.conf
+./etc/init/control-alt-delete.conf
+./etc/init/failsafe.conf
+./etc/init/upstart-socket-bridge.conf
+./etc/init/tty2.conf
+./etc/init/hwclock.conf
+./etc/init/mounted-debugfs.conf
+./etc/init/flush-early-job-log.conf
+./etc/init/apport.conf
+./etc/init/plymouth.conf
+./etc/init/tty3.conf
+./etc/init/plymouth-splash.conf
+./etc/init/module-init-tools.conf
+./etc/init/irqbalance.conf
+./etc/init/procps.conf
+./etc/init/udevtrigger.conf
+./etc/init/mountall.conf
+./etc/init/dmesg.conf
+./etc/init/mounted-proc.conf
+./etc/init/udev-finish.conf
+./etc/init/shutdown.conf
+./etc/init/mountall-shell.conf
+./etc/init/networking.conf
+./etc/init/setvtrgb.conf
+./etc/init/cron.conf
+./etc/init/tty4.conf
+./etc/init/mountall-reboot.conf
+./etc/init/atd.conf
+./etc/init/plymouth-log.conf
+./etc/init/mounted-dev.conf
+./etc/init/ssh.conf
+./etc/init/container-detect.conf
+./etc/init/dbus.conf
+./etc/init/console-setup.conf
+./etc/init/network-interface-security.conf
+./etc/init/mounted-var.conf
+./etc/init/ureadahead.conf
+./etc/init/whoopsie.conf
+./etc/init/hostname.conf
+./etc/init/rsyslog.conf
+./etc/init/console.conf
+./etc/init/hwclock-save.conf
+./etc/init/tty6.conf
+./etc/init/ureadahead-other.conf
+./etc/init/tty5.conf
+./etc/init/rc-sysinit.conf
+./etc/init/rcS.conf
+./etc/init/udev-fallback-graphics.conf
+./etc/init/mounted-tmp.conf
+./etc/init/upstart-udev-bridge.conf
+./etc/init/ufw.conf
+./etc/init/network-interface-container.conf
+./etc/init/rc.conf
+./etc/init/screen-cleanup.conf
+./etc/init/mountall-net.conf
+./etc/init/wait-for-state.conf
+./etc/init/network-interface.conf
+./etc/init/plymouth-stop.conf
+./etc/init/udev.conf
+./etc/init/acpid.conf
+./etc/init/mounted-run.conf
+./etc/init/udevmonitor.conf
+./etc/init/tty1.conf
+./etc/init/plymouth-upstart-bridge.conf
+./etc/init/friendly-recovery.conf
+./etc/init/resolvconf.conf
+./etc/dhcp/dhclient.conf
+./etc/nsswitch.conf
+./etc/apport/crashdb.conf
+./etc/logrotate.conf
+./etc/mtools.conf
+./etc/puppet/puppet.conf
+./etc/ufw/sysctl.conf
+./etc/ufw/ufw.conf
+./etc/gnome-vfs-2.0/modules/default-modules.conf
+./etc/sysctl.d/10-kernel-hardening.conf
+./etc/sysctl.d/10-ipv6-privacy.conf
+./etc/sysctl.d/10-network-security.conf
+./etc/sysctl.d/10-ptrace.conf
+./etc/sysctl.d/10-console-messages.conf
+./etc/sysctl.d/10-zeropage.conf
+./etc/logstash.conf
+]0;logadmin@log-01: /logadmin@log-01:/$ cd[K[Kcat /etc/logstash.conf
+input {
+  tcp {
+    type => "http_traffic"
+    port => 3334
+  }
+}
+
+output {
+  file {
+    path => '~/tmp.txt'
+  }
+}]0;logadmin@log-01: /logadmin@log-01:/$ cd [K[K[Kls ~/tmpt[K.ct[K[Ktxt
+ls: cannot access /home/logadmin/tmp.txt: No such file or directory
+]0;logadmin@log-01: /logadmin@log-01:/$ ls ~/tmp.txt[K[K[K[K[K[K[K
+logadmin  [0m[01;34mpuppet[0m
+]0;logadmin@log-01: /logadmin@log-01:/$ cd[K[Kls /home/root/
+ls: cannot access /home/root/: No such file or directory
+]0;logadmin@log-01: /logadmin@log-01:/$ ls /home/root/[K
+ls: cannot access /home/root: No such file or directory
+]0;logadmin@log-01: /logadmin@log-01:/$ cd /home
+]0;logadmin@log-01: /homelogadmin@log-01:/home$ ls
+[0m[01;34mlogadmin[0m
+]0;logadmin@log-01: /homelogadmin@log-01:/home$ ls -all
+total 12
+drwxr-xr-x  3 root     root     4096 Sep 23 15:54 [0m[01;34m.[0m
+drwxr-xr-x 23 root     root     4096 Sep 23 15:50 [01;34m..[0m
+drwxr-xr-x  6 logadmin logadmin 4096 Sep 24 20:45 [01;34mlogadmin[0m
+]0;logadmin@log-01: /homelogadmin@log-01:/home$ cd ..
+]0;logadmin@log-01: /logadmin@log-01:/$ cd ~/logas[Kd[K[K[K[K[K[K/logad[K[K[K[K[K[K[K[K[K[Kcd ~
+]0;logadmin@log-01: ~logadmin@log-01:~$ cd logad
+bash: cd: logad: No such file or directory
+]0;logadmin@log-01: ~logadmin@log-01:~$ 
+]0;logadmin@log-01: ~logadmin@log-01:~$ ls
+logadmin  [0m[01;34mpuppet[0m
+]0;logadmin@log-01: ~logadmin@log-01:~$ cd p[K[K[K[Kcd logadmin
+bash: cd: logadmin: Not a directory
+]0;logadmin@log-01: ~logadmin@log-01:~$ cd puppet/
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ ls
+logadmin  logadmin.pub  [0m[01;34mmanifests[0m  [01;34mmodules[0m  push.sh  rakefile  README.md  typescript
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd modules/
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ ls
+[0m[01;34mlogstash[0m  [01;34mpuppet[0m  [01;34mstdlib[0m
+]0;logadmin@log-01: ~/puppet/moduleslogadmin@log-01:~/puppet/modules$ cd ..
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd ,an[K[K[Kna[K[Kam[K[Kmanifests/
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ks
+ks: command not found
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ ls
+nodes.pp  site.pp  typescript
+]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ nano nodes.pp 
+[?1049h[1;54r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.2.6                                                   File: nodes.pp                                                                                                             [3;1H(B[mnode 'log-01' {[4;3Hinclude puppet[5;3Hclass { 'logstash':[6;5Hprovider[20G=> 'custom',[7;5Hjarfile[7;20H=> 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',[8;3H}[9dlogstash::input::tcp { 'logstash-tcp':[10;4Htype => 'tcp',[11;4Hport => '3366',[12d }[13dlogstash::output::file { 'logstash-file':[14;4Htype => 'file',[15;4Hpath => '/tmp/tmp.txt',[16d }[19d}[20dnode 'log-02' {[21;3Hinclude puppet[22d}[52;87H(B[0;7m[ Read 20 lines ][53d^G(B[m Get Help[53;32H(B[0;7m^O(B[m WriteOut[53;63H(B[0;7m^R(B[m Read File[53;94H(B[0;7m^Y(B[m Prev Page[53;125H(B[0;7m^K(B[m Cut Text[53;156H(B[0;7m^C(B[m Cur Pos[54d(B[0;7m^X(B[m Exit[54;32H(B[0;7m^J(B[m Justify[54;63H(B[0;7m^W(B[m Where Is[54;94H(B[0;7m^V(B[m Next Page[54;125H(B[0;7m^U(B[m UnCut Text[54;156H(B[0;7m^T(B[m To Spell[3d[1;181H(B[0;7mModified[3d(B[mlnode 'log-01' {l[1P[4d[5d[6d[7d[8d[9d[10d[11d[12d [13do[14d[15d path => [52d[K[15;13H/tmp[1P[1P[1Pe/tmp.txt',[15;15Ht/tmp.txt',[15;16H[1P[1Po/tmp.txt',[15;15Hp/tmp.txt',[15;16Ht/tmp.txt',[15;17H[52d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                                                                  [53;1H Y(B[m Yes[K[54d(B[0;7m N(B[m No  [54;17H(B[0;7m^C(B[m Cancel[K[52;62H(B[0;7mFile Name to Write: nodes.pp                                [53d^G(B[m Get Help[53;48H(B[0;7mM-D(B[m DOS Format[53;95H(B[0;7mM-A(B[m Append[53;142H(B[0;7mM-B(B[m Backup File[54d(B[0;7m^C(B[m Cancel[17G         [54;48H(B[0;7mM-M(B[m Mac Format[54;95H(B[0;7mM-P(B[m Prefix[52;29H[53d[39;49m(B[m[J[1;181H(B[0;7m        [52;86H(B[m[1K (B[0;7m[ Wrote 20 lines ](B[m[K[54;190H[54;1H[?1049l[?1l>]0;logadmin@log-01: ~/puppet/manifestslogadmin@log-01:~/puppet/manifests$ cd ..
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ ash[K[K[Kbash push.sh 
+The following paths are ignored by one of your .gitignore files:
+logadmin
+Use -f if you really want to add them.
+fatal: no files added
+# On branch master
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   logadmin.pub
+#	deleted:    manifests/logstash-collector.pp
+#	modified:   manifests/nodes.pp
+#	modified:   modules/logstash/files/logstash
+#	modified:   modules/logstash/manifests/init.pp
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	manifests/typescript
+#	modules/logstash/CHANGELOG
+#	modules/logstash/CONTRIBUTORS
+#	modules/logstash/LICENSE
+#	modules/logstash/Modulefile
+#	modules/logstash/README.md
+#	modules/logstash/Rakefile
+#	modules/logstash/files/etc/
+#	modules/logstash/files/logstash-1.2.1-flatjar.jar
+#	modules/logstash/lib/
+#	modules/logstash/logstash-1.2.1-flatjar.jar
+#	modules/logstash/manifests/collector.pp
+#	modules/logstash/manifests/config.pp
+#	modules/logstash/manifests/configdir.pp
+#	modules/logstash/manifests/filter/
+#	modules/logstash/manifests/input/
+#	modules/logstash/manifests/java.pp
+#	modules/logstash/manifests/output/
+#	modules/logstash/manifests/package.pp
+#	modules/logstash/manifests/params.pp
+#	modules/logstash/manifests/service.pp
+#	modules/logstash/manifests/servicefile.pp
+#	modules/logstash/metadata.json
+#	modules/logstash/spec/
+#	modules/logstash/templates/
+#	modules/stdlib/
+#	push.sh
+#	typescript
+no changes added to commit (use "git add" and/or "git commit -a")
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ pull-updates 
+Already up-to-date.
+[1;31mWarning: Config file /etc/puppet/hiera.yaml not found, using Hiera defaults[0m
+[mNotice: Compiled catalog for log-01.datacentre.esendex.com in environment production in 0.83 seconds[0m
+[mNotice: /Stage[main]//Node[log-01]/Logstash::Output::File[logstash-file]/File[/etc/logstash/agent/config/output_file_logstash-file]/content: content changed '{md5}a3c131b236b8f0e228e39673ace0ec60' to '{md5}0a00b4ab5ede614ff0e4a3674a5aab0b'[0m
+[mNotice: /Stage[main]/Logstash::Service/Logstash::Servicefile[agent]/Service[logstash-agent]: Triggered 'refresh' from 1 events[0m
+[mNotice: Finished catalog run in 4.57 seconds[0m
+]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cat /etc/logstash.conf 
+input {
+  tcp {
+    type => "http_traffic"
+    port => 3334
+  }
+}
+
+output {
+  file {
+    path => '~/tmp.txt'
+  }
+}]0;logadmin@log-01: ~/puppetlogadmin@log-01:~/puppet$ cd /
+]0;logadmin@log-01: /logadmin@log-01:/$ sudo find -name logs[K[K[K[Klogstash.conf
+./home/logadmin/puppet/modules/logstash/files/logstash.conf
+./etc/logstash.conf
+]0;logadmin@log-01: /logadmin@log-01:/$ ls ~
+logadmin  [0m[01;34mpuppet[0m
+]0;logadmin@log-01: /logadmin@log-01:/$ ls /tmp
+[0m[01;34mhsperfdata_root[0m
+]0;logadmin@log-01: /logadmin@log-01:/$ ls /tmp/
+[0m[01;34mhsperfdata_root[0m
+]0;logadmin@log-01: /logadmin@log-01:/$ ls /tmp/*
+3831
+]0;logadmin@log-01: /logadmin@log-01:/$ cd /tmp
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ ls
+[0m[01;34mhsperfdata_root[0m
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ nc 127.0.0.1 3366
+sddv
+wegweg
+erg
+erg
+ weqt 43q
+ 342t324
+rg3wre
+gr
+g4w
+
+
+
+
+
+
+
+
+
+erg
+werg
+34
+g
+34g
+34g
+
+
+
+
+34g
+34
+g
+34g
+4g
+
+
+
+g3
+
+4g
+gggggggggggggggggggggggggggg
+g3
+34g43
+4
+^C
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ ls
+[0m[01;34mhsperfdata_root[0m
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ ls
+[0m[01;34mhsperfdata_root[0m
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ ls
+[0m[01;34mhsperfdata_root[0m
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ lsnc 127.0.0.1 3366[C[K7
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ nc 127.0.0.1 3367[K6
+qf^[[Awef
+2wfe
+w2f
+23f
+23f
+23
+f
+
+^C
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ ls /[K
+[0m[01;34mhsperfdata_root[0m
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ ls ~
+logadmin  [0m[01;34mpuppet[0m
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ ls ~
+logadmin  [0m[01;34mpuppet[0m
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ ls
+[0m[01;34mhsperfdata_root[0m
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ ls ~[Knc 127.0.0.1 33667[K6
+r2334
+4g3
+3g
+3g
+34
+34g
+34
+g43
+g
+43g34
+^C
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ nc 127.0.0.1 3366ls[K
+[0m[01;34mhsperfdata_root[0m
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ ls ~
+logadmin  [0m[01;34mpuppet[0m
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ ls /etc/init
+acpid.conf               failsafe.conf             mountall-reboot.conf    network-interface-container.conf  rc-sysinit.conf      tty4.conf                    upstart-udev-bridge.conf
+apport.conf              flush-early-job-log.conf  mountall-shell.conf     network-interface-security.conf   resolvconf.conf      tty5.conf                    ureadahead.conf
+atd.conf                 friendly-recovery.conf    mounted-debugfs.conf    plymouth.conf                     rsyslog.conf         tty6.conf                    ureadahead-other.conf
+console.conf             hostname.conf             mounted-dev.conf        plymouth-log.conf                 screen-cleanup.conf  udev.conf                    wait-for-state.conf
+console-setup.conf       hwclock.conf              mounted-proc.conf       plymouth-splash.conf              setvtrgb.conf        udev-fallback-graphics.conf  whoopsie.conf
+container-detect.conf    hwclock-save.conf         mounted-run.conf        plymouth-stop.conf                shutdown.conf        udev-finish.conf
+control-alt-delete.conf  irqbalance.conf           mounted-tmp.conf        plymouth-upstart-bridge.conf      ssh.conf             udevmonitor.conf
+cron.conf                module-init-tools.conf    mounted-var.conf        procps.conf                       tty1.conf            udevtrigger.conf
+dbus.conf                mountall.conf             networking.conf         rc.conf                           tty2.conf            ufw.conf
+dmesg.conf               mountall-net.conf         network-interface.conf  rcS.conf                          tty3.conf            upstart-socket-bridge.conf
+]0;logadmin@log-01: /tmplogadmin@log-01:/tmp$ ls /etc/init.d/
+[0m[01;36macpid[0m          [01;36mdbus[0m               [01;36mhwclock[0m            [01;32mnetworking[0m                   [01;36mplymouth-splash[0m          [01;32mrc.local[0m    [01;36mscreen-cleanup[0m  [01;32mstop-bootlogd-single[0m    [01;36mufw[0m
+[01;32mapparmor[0m       [01;36mdmesg[0m              [01;36mhwclock-save[0m       [01;36mnetwork-interface[0m            [01;36mplymouth-stop[0m            [01;32mrcS[0m         [01;32msendsigs[0m        [01;32msudo[0m         
