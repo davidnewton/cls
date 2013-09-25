@@ -1,7 +1,3 @@
-class { 'java':
-  distribution => 'jdk',
-}
-
 class { 'elasticsearch':
   pkg_source => 'puppet:///modules/elasticsearch/elasticsearch-0.90.5.deb',
   config => {
