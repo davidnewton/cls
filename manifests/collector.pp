@@ -14,7 +14,7 @@
    instances => [ 'collector' ],
    type => 'udp',
    es_host => 'log-01',
-   rabbitmq_host => 'log-02',
+   rabbitmq_host => $hostname,
    rabbitmq_port => '5672',
   }
 
