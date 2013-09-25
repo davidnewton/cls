@@ -4,7 +4,7 @@
    jarfile        => 'puppet:///modules/logstash/logstash-1.2.1-flatjar.jar',
    instances      => [ 'collector', 'shipper' ],
   }
-  logstash::input::tcp { 'logstash-udp':
+  logstash::input::udp { 'logstash-udp':
    instances => [ 'collector' ],
    type => 'udp',
    port => '514',
@@ -13,7 +13,7 @@
   logstash::output::elasticsearch_river { 'logstash-esr':
    instances => [ 'collector' ],
    type => 'udp',
-   es_host => 'log-01',
+   es_host => 'log-01.datacentre.esendex.com',
    rabbitmq_host => $hostname,
    rabbitmq_port => '5672',
   }
