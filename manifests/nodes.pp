@@ -9,7 +9,7 @@ node 'log-02.datacentre.esendex.com' {
   import 'collector.pp'
   #import 'kibana3.pp'
 }
-node 'log-03.datacentre.esendex.com' {
+node 'log-03' {
   include puppet
   import 'kibana3.pp'
 }
