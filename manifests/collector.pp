@@ -18,9 +18,7 @@
    rabbitmq_port => '5672',
   }
 
-class { '::rabbitmq':
-  queue             => 'elasticsearch',
-  routing_key       => 'elasticsearch',
+class { '::rabbitmq'
   port              => '5672',
   delete_guest_user => false,
   default_user      => 'guest',
