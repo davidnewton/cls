@@ -18,6 +18,4 @@ class { 'elasticsearch':
 elasticsearch::plugin{'mobz/elasticsearch-head':
    module_dir => 'head'
  }
-elasticsearch::plugin{'elasticsearch/elasticsearch-river-rabbitmq/1.6.0':
-   module_dir => 'rmq-river'
- }
+
