@@ -19,6 +19,12 @@
   }
 
 class { '::rabbitmq':
+  host              => 'localhost',
+  vhost             => '/',
+  queue             => 'elasticsearch',
+  exchange          => 'elasticsearch',
+  routing_key       => 'elasticsearch',
+  exchange_type     => 'direct',
   port              => '5672',
   delete_guest_user => false,
   default_user      => 'guest',
