@@ -19,8 +19,6 @@
   }
 
 class { '::rabbitmq':
-  host              => 'localhost',
-  vhost             => '/',
   queue             => 'elasticsearch',
   routing_key       => 'elasticsearch',
   port              => '5672',
