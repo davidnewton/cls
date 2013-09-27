@@ -10,17 +10,8 @@
    port => '514',
   }
 
-  logstash::output::elasticsearch_river { 'logstash-esr':
+  logstash::output::elasticsearch { 'logstash-es':
    instances => [ 'collector' ],
    type => 'udp',
-   es_host => 'log-01.datacentre.esendex.com',
-   rabbitmq_host => $hostname,
-   rabbitmq_port => '5672',
+   host => 'log-01.datacentre.esendex.com',
   }
-
-class { '::rabbitmq':
-  port              => '5672',
-  delete_guest_user => false,
-  default_user      => 'guest',
-  default_pass      => 'guest',
-}
