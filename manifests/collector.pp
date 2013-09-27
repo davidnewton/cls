@@ -24,3 +24,6 @@ class { '::rabbitmq':
   default_user      => 'guest',
   default_pass      => 'guest',
 }
+rabbitmq_plugin {'rabbitmq_river':
+  ensure => present,
+}
