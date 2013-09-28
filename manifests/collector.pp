@@ -10,7 +10,7 @@
   }
   
   file { '/etc/logstash/files/patterns/extra-patterns':
-    source => 'puppet:///modules/puppet/extra-patterns',
+    source => 'puppet:///modules/logstash/extra-patterns',
     mode   => '0755',
   }
 
