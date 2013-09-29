@@ -23,7 +23,7 @@
   logstash::filter::grok { 'logstash-grok':
     instances    => [ 'collector' ],
     type         => 'udp',
-    match        => [ "message", "%{SYSLOG5424PRI:Priority} (?:%{TIMESTAMP_ISO8601:syslog5424_ts}|-) (?:%{HOSTNAME:syslog5424_host}|-) (?:%{WORD:syslog5424_app}|-) (?:%{WORD:syslog5424_proc}|-) (?:%{WORD:syslog5424_msgid}|-) (?:%{SYSLOG5424SD:syslog5424_sd}|-) %{GREEDYDATA:syslog5424_msg}" ],
+    match        => [ "message", "%{SYSLOG5424PRI:Priority} (?:%{TIMESTAMP_ISO8601:syslog5424_ts}|-) (?:%{HOSTNAME:syslog5424_host}|-) %{GREEDYDATA:syslog5424_msg}" ],
     add_tag      => [ 'syslog' ],
   }    
 
