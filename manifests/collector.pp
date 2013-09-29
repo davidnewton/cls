@@ -20,6 +20,14 @@
    port => '514',
   }
 
+  logstash::filter::grok { 'logstash-grok':
+    instances    => [ 'collector' ],
+    type         => 'udp',
+    patterns_dir => [ '/etc/logstash/files/patterns' ],
+    pattern      => [ '<%{INT:syslog_priority}>%{SYSLOGTSPIX:syslog_timestamp}:%{GREEDYDATA:syslog_hostname}: %{GREEDYDATA:syslog_message}' ],
+    add_tag      => [ 'syslog' ],
+  }    
+
   logstash::output::elasticsearch { 'logstash-es':
    instances => [ 'collector' ],
    type => 'udp',
